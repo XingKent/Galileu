@@ -1,18 +1,8 @@
-/* Reset básico */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 body {
-  font-family: 'Lato', sans-serif; /* Fonte de corpo de texto */
-  line-height: 1.6;
-  background-color: #ffffff; /* Preto GRC */
-  color: #b0b0b0; /* Cinza Neutro */
+  margin: 0;
+  background: #ffffff;
 }
 
-/* ================= NAVBAR ================= */
 header {
   background: #000000;
   color: #fff;
@@ -20,6 +10,11 @@ header {
   position: sticky;
   top: 0;
   z-index: 1000;
+}
+
+header .logo img {
+  width: 150px;
+  vertical-align: middle;
 }
 
 nav {
@@ -31,158 +26,50 @@ nav {
 nav ul {
   display: flex;
   list-style: none;
-  gap: 20px;
+  gap: 100px; /* Diminuí o gap para ficar mais parecido com a imagem */
 }
 
-nav a {
+nav ul a {
   color: #fff;
-  font-family: 'Exo 2', sans-serif; /* Fonte de títulos */
-  text-decoration: none;
-  transition: color 0.3s;
-}
-
-nav a:hover {
-  color: #22eff5; /* Ciano Tech */
-}
-
-/* ================= BOTÕES ================= */
-.btn {
-  padding: 10px 18px;
-  border-radius: 6px;
-  font-weight: bold;
-  text-decoration: none;
-  transition: background 0.3s;
-}
-
-.btn.destaque {
-  background: #fa680a; /* Laranja GRC */
-  color: #000;
-}
-
-.btn:hover {
-  background: #ffdd00; /* Amarelo Alerta */
-  color: #000;
-}
-
-/* ================= HERO ================= */
-.hero {
-  text-align: center;
-  padding: 100px 20px;
-  background: url("../img/banner.jpg") no-repeat center/cover;
-  color: white;
-}
-
-.hero h1 {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 3rem;
-  margin-bottom: 20px;
-  text-transform: uppercase;
-}
-
-.hero p {
-  font-size: 1.2rem;
-  margin-bottom: 20px;
-}
-
-/* ================= ÍCONES ================= */
-.icones {
-  display: flex;
-  justify-content: space-around;
-  padding: 50px 20px;
-  background: #111;
-}
-
-.icone {
-  text-align: center;
-  cursor: pointer;
-  transition: transform 0.3s;
-}
-
-.icone img {
-  max-width: 80px;
-  margin-bottom: 10px;
-}
-
-.icone:hover {
-  transform: scale(1.1);
-  color: #22eff5;
-}
-
-/* ================= CARROSSEL DIAGONAL ================= */
-.carrossel {
-  position: relative;
-  overflow: hidden;
-  height: 400px;
-  background: #000;
-}
-
-.video-container {
-  display: flex;
-  gap: 20px;
-  transform: rotate(-5deg); /* efeito diagonal */
-  transition: transform 0.8s ease-in-out;
-}
-
-/* ================= TEXTO INSTITUCIONAL ================= */
-.sobre {
-  text-align: center;
-  padding: 60px 20px;
-}
-
-.sobre h2 {
   font-family: 'Exo 2', sans-serif;
-  font-size: 2rem;
-  color: #22eff5;
-  margin-bottom: 15px;
-}
-
-/* ================= DIFERENCIAIS ================= */
-.diferenciais {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 20px;
-  padding: 50px 20px;
-  background: #111;
-}
-
-.card {
-  background: #1e1e1e;
-  border: 1px solid #333;
-  padding: 25px;
-  border-radius: 12px;
-  text-align: center;
-  transition: transform 0.3s;
-}
-
-.card:hover {
-  transform: translateY(-5px);
-  border-color: #fa680a;
-}
-
-/* ================= FOOTER ================= */
-footer {
-  background: #dadada;
-  color: #b0b0b0;
-  text-align: center;
-  padding: 25px 15px;
-  font-size: 0.9rem;
-}
-
-footer a {
-  color: #fa680a;
+  font-weight: 700; /* Deixa a fonte mais forte */
   text-decoration: none;
+  text-transform: uppercase; /* Coloca o texto em maiúsculas */
+  transition: color 0.3s;
+  font-size: 1.2rem;
 }
 
-footer .redes img {
-    width: 30px;
+nav ul a:hover {
+  color: #fa680a; /* Laranja GRC, para consistência */
 }
 
-footer a:hover {
-  color: #22eff5;
+.auth-buttons a.btn {
+  background-color: #fa680a; 
+  color: #fff; 
+  text-decoration: none;
+  font-family: 'Exo 2', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  border-radius: 30px; 
+  transition: background-color 0.3s;
+  position: relative; 
+  display: inline-flex; /* Usar inline-flex para a largura se ajustar */
+  align-items: center;
+  height: 40px;
+  /* PADDING AJUSTADO: Cima/Baixo | Direita | Esquerda */
+  padding: 0 25px 0 100px; 
+  font-size: 1.2rem;
+  box-sizing: border-box; 
 }
 
-footer .redes {
-    background-color: white;
-    display: flex;
-    align-items: center;
+.auth-buttons a.btn:hover {
+  background-color: #e85a00; 
+}
+
+.auth-buttons img {
+  position: absolute;
+  height: 100%; 
+  width: auto;   
+  top: 0;        
+  left: 15px;    /* A imagem continua a 15px da borda */
 }
