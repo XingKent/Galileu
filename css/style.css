@@ -55,7 +55,7 @@ nav ul a:hover {
   position: relative; 
   display: inline-flex; /* Usar inline-flex para a largura se ajustar */
   align-items: center;
-  height: 40px;
+  height: 30px;
   /* PADDING AJUSTADO: Cima/Baixo | Direita | Esquerda */
   padding: 0 25px 0 100px; 
   font-size: 1.2rem;
@@ -72,4 +72,65 @@ nav ul a:hover {
   width: auto;   
   top: 0;        
   left: 15px;    /* A imagem continua a 15px da borda */
+}
+
+
+
+/*------------------ HERO SECTION ------------------*/
+
+.hero-section {
+  /* Altere 'URL_DA_IMAGEM_DE_FUNDO.jpg' pelo caminho real da sua imagem */
+  /*background-image: url('URL_DA_IMAGEM_DE_FUNDO.jpg');*/
+  background-color: #000000;
+  background-size: cover; /* Faz a imagem cobrir toda a área da seção */
+  background-position: center; /* Centraliza a imagem */
+  padding: 100px 0; /* Espaçamento interno (vertical | horizontal) */
+}
+
+.hero-section .container {
+  max-width: 650px; /* Define a largura máxima do bloco de texto */
+  margin-left: auto; /* Alinha o container à direita */
+  margin-right: 80px;
+  text-align: left; /* Alinha o texto dentro do container à esquerda */
+}
+
+.hero-title {
+  font-family: var(--fonte-titulos);
+  color: #fa680a;
+  font-size: 1.5rem; /* 24px */
+  font-weight: 700;
+  margin: 0;
+}
+
+.hero-subtitle {
+  font-family: var(--fonte-titulos);
+  color: #fff;
+  font-size: 1.5rem; /* 40px */
+  font-weight: 800;
+  margin-top: 5px;
+  margin-bottom: 20px;
+}
+
+.hero-description {
+  font-family: var(--fonte-textos);
+  color: var(--cor-cinza-neutro);
+  line-height: 1.6; /* Espaçamento entre as linhas */
+  margin-bottom: 30px;
+}
+
+.btn-cta {
+  background-color: #fa680a;
+  color: #fff;
+  font-family: var(--fonte-titulos);
+  font-weight: 700;
+  text-decoration: none;
+  text-transform: uppercase;
+  padding: 15px 40px;
+  border-radius: 30px;
+  transition: background-color 0.3s;
+  display: inline-block; /* Necessário para aplicar padding corretamente */
+}
+
+.btn-cta:hover {
+  background-color: #e85a00;
 }
