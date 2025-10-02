@@ -40,7 +40,7 @@ nav ul a {
 }
 
 nav ul a:hover {
-  color: #fa680a; /* Laranja GRC, para consistência */
+  color: #fa680a;
 }
 
 .auth-buttons a.btn {
@@ -56,8 +56,7 @@ nav ul a:hover {
   display: inline-flex; /* Usar inline-flex para a largura se ajustar */
   align-items: center;
   height: 30px;
-  /* PADDING AJUSTADO: Cima/Baixo | Direita | Esquerda */
-  padding: 0 25px 0 100px; 
+  padding: 0 25px 0 100px; /* PADDING AJUSTADO: Cima/Baixo | Direita | Esquerda */
   font-size: 1.2rem;
   box-sizing: border-box; 
 }
@@ -71,7 +70,7 @@ nav ul a:hover {
   height: 100%; 
   width: auto;   
   top: 0;        
-  left: 15px;    /* A imagem continua a 15px da borda */
+  left: 15px; /* A imagem continua a 15px da borda */
 }
 
 
@@ -79,8 +78,7 @@ nav ul a:hover {
 /*------------------ HERO SECTION ------------------*/
 
 .hero-section {
-  /* Altere 'URL_DA_IMAGEM_DE_FUNDO.jpg' pelo caminho real da sua imagem */
-  /*background-image: url('URL_DA_IMAGEM_DE_FUNDO.jpg');*/
+  /* background-image: url('URL_DA_IMAGEM_DE_FUNDO.jpg'); */
   background-color: #000000;
   background-size: cover; /* Faz a imagem cobrir toda a área da seção */
   background-position: center; /* Centraliza a imagem */
@@ -90,38 +88,44 @@ nav ul a:hover {
 .hero-section .container {
   max-width: 650px; /* Define a largura máxima do bloco de texto */
   margin-left: auto; /* Alinha o container à direita */
-  margin-right: 80px;
+  margin-right: 150px;
   text-align: left; /* Alinha o texto dentro do container à esquerda */
 }
 
 .hero-title {
-  font-family: var(--fonte-titulos);
+  font-family: 'Exo 2', sans-serif;
   color: #fa680a;
   font-size: 1.5rem; /* 24px */
-  font-weight: 700;
-  margin: 0;
+  font-weight: 800;
+  margin: -10px 0 10px 0;
 }
 
 .hero-subtitle {
-  font-family: var(--fonte-titulos);
+  font-family: 'Exo 2', sans-serif;
   color: #fff;
   font-size: 1.5rem; /* 40px */
   font-weight: 800;
-  margin-top: 5px;
+  margin-top: -10px;
   margin-bottom: 20px;
 }
 
 .hero-description {
-  font-family: var(--fonte-textos);
-  color: var(--cor-cinza-neutro);
-  line-height: 1.6; /* Espaçamento entre as linhas */
+  font-family: 'Lato', sans-serif;
+  color: #fff;
+  line-height: 1.3; /* Espaçamento entre as linhas */
   margin-bottom: 30px;
+  margin-top: -10px;
+  max-width: 550px;
+}
+
+.laranjinha {
+  color: #fa680a;
 }
 
 .btn-cta {
   background-color: #fa680a;
   color: #fff;
-  font-family: var(--fonte-titulos);
+  font-family: 'Exo 2', sans-serif;
   font-weight: 700;
   text-decoration: none;
   text-transform: uppercase;
