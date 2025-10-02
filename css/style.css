@@ -1,3 +1,4 @@
+/*------------------ HEADER ------------------*/
 body {
   margin: 0;
   background: #ffffff;
@@ -76,7 +77,6 @@ nav ul a:hover {
 
 
 /*------------------ HERO SECTION ------------------*/
-
 .hero-section {
   /* background-image: url('URL_DA_IMAGEM_DE_FUNDO.jpg'); */
   background-color: #000000;
@@ -137,4 +137,43 @@ nav ul a:hover {
 
 .btn-cta:hover {
   background-color: #e85a00;
+}
+
+
+
+/*------------------ QUICK ACCESS ------------------*/
+.quick-access-section {
+  background-color: #fff; /* Fundo branco para a seção */
+  padding: 60px 150px 10px; /* Espaçamento */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.quick-access-section .container {
+  display: flex; /* Alinha os cards lado a lado */
+  justify-content: space-between; /* Distribui os cards igualmente */
+  gap: 20px; /* Espaço entre os cards */
+}
+
+.access-card {
+  text-align: center; /* Centraliza todo o conteúdo do card */
+  max-width: 250px; /* Largura máxima de cada card */
+}
+
+.card-icon {
+  height: 40px; /* Altura fixa para os ícones */
+  margin-bottom: 15px; /* Espaço abaixo do ícone */
+}
+
+.card-title {
+  color: #fa680a; /* Cor laranja do manual da marca */
+  font-family: 'Exo 2', sans-serif;
+  font-size: 1.25rem; /* 20px */
+  margin-bottom: 10px;
+}
+
+.card-description {
+  color: #333; /* Cor escura para o texto (preto ou cinza escuro) */
+  font-family: 'Lato', sans-serif;
+  font-size: 1rem; /* 16px */
+  line-height: 1.5;
 }
