@@ -189,7 +189,7 @@ nav ul a:hover {
 
 .card-link:hover .access-card { /* Efeito de "levantar" o card quando o mouse passa por cima */
   transform: translateY(-5px); /* Move o card 5px para cima */
-  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1); /* Sombra para mais destaque */
+  /*box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1); Sombra para mais destaque */
 }
 
 
