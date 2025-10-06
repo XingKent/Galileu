@@ -196,7 +196,7 @@ nav ul a:hover {
 
 /*------------------ MANIFESTO SECTION ------------------*/
 .manifesto-section {
-  padding: 80px 0; /* Espaçamento interno vertical */
+  padding: 150px 0 100px 0; /* Espaçamento interno vertical */
   background-color: #dddddd; /* Um cinza bem escuro para diferenciar do preto */
 }
 
@@ -221,8 +221,7 @@ nav ul a:hover {
   border-radius: 10px; /* Bordas levemente arredondadas para a imagem */
 }
 
-/* Estilos para o título e parágrafo da seção */
-.manifesto-text .section-title {
+.manifesto-text .section-title { /* Estilos para o título e parágrafo da seção */
   font-family: 'exo 2', sans-serif;
   color: #000000;
   margin-bottom: 20px;
@@ -234,4 +233,154 @@ nav ul a:hover {
   color: var(--cor-cinza-neutro);
   line-height: 1.7; /* Aumenta o espaçamento entre as linhas para melhor leitura */
   max-width: 550px;
+}
+
+
+
+/*------------------ DIFERENCIAIS SECTION ------------------*/
+.diferenciais-section {
+  padding: 80px 100px 80px 80px;
+  background-color: #fff; /* Fundo branco */
+  color: #000000; /* Texto escuro */
+}
+
+.diferenciais-section .container {
+  display: flex;
+  align-items: center;
+  gap: 30px; /* Espaço entre a imagem e o conteúdo */
+  
+}
+
+/* Coluna da Imagem */
+.diferenciais-visual {
+  flex-basis: 40%; /* Define a largura base da coluna da imagem */
+}
+
+.diferenciais-visual img {
+  width: 100%;
+  border-radius: 20px; /* Bordas bem arredondadas */
+}
+
+/* Coluna do Conteúdo */
+.diferenciais-conteudo {
+  flex-basis: 60%; /* Define a largura base da coluna de conteúdo */
+}
+
+.diferenciais-conteudo .section-title {
+  color: #000000; /* Título preto */
+  font-size: 1.7rem;
+  margin-bottom: -13px;
+  margin-left: 20px;
+}
+
+.diferenciais-conteudo .section-description {
+  color: #000000; /* Descrição com um cinza um pouco mais claro */
+  font-size: 1.4rem;
+  margin-bottom: 30px;
+  margin-left: 20px;
+}
+
+/* Grid dos Cards */
+.diferenciais-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Cria duas colunas de largura igual */
+  gap: 20px; /* Espaço entre os cards */
+}
+
+.diferencial-card {
+  border: 2px solid #050000; /* Borda */
+  padding: 0 20px 0px 20px; 
+  border-radius: 50px; /* Bordas arredondadas */
+  box-shadow: 5px 5px 0 #d6d6d6; /* X | Y | Blur (zero) | Cor */
+}
+
+.diferencial-card h3 {
+  font-family: 'exo 2', sans-serif;
+  color: #000000;
+  font-size: 1.25rem;
+  margin-bottom: -15px;
+  font-weight: 800; /* Deixa o título mais "bold" */
+}
+
+.diferencial-card p {
+  font-family: 'Lato', sans-serif;
+  color: #000000;
+  font-size: 1.25rem;
+  line-height: 1.6;
+}
+
+
+
+/*------------------ FOOTER ------------------*/
+.main-footer {
+  color: #fff;
+}
+
+/* Faixa Laranja Superior */
+.footer-upper {
+  background-color: #fa680a;
+  padding: 2px 0;
+}
+
+/* Área Preta Inferior */
+.footer-lower {
+  background-color: #000;
+  padding: 30px 0;
+} 
+
+.footer-title h3 {
+  font-family: 'exo 2';
+  font-size: 1.2rem;
+  color: #ffffff;
+  margin: 0;
+}
+
+.footer-lower .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start; /* Alinha os itens no topo */
+  padding: 0 100px;
+}
+
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links ul li {
+  margin-bottom: 10px; /* Espaço entre os links */
+}
+
+.footer-links a {
+  color: #fff;
+  font-size: 1.2rem;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-links a:hover {
+  color: #fa680a;
+}
+
+.footer-social a {
+  margin-left: -20px; /* Espaço entre os ícones sociais */
+}
+
+.footer-social img {
+  height: 50px; /* Tamanho dos ícones */
+  opacity: 0.7;
+  transition: opacity 0.3s;
+}
+
+.footer-social a:hover img {
+  opacity: 1;
+}
+
+/* Copyright */
+.footer-lower .footer-copyright {
+  background-color: #000;
+  text-align: center;
+  font-size: 1rem;
+  color: var(--cor-cinza-neutro);
+  margin-bottom: -50px;
 }
