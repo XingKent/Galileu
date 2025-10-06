@@ -118,7 +118,7 @@ nav ul a:hover {
   max-width: 550px;
 }
 
-.laranjinha {
+.littleOrange {
   color: #fa680a;
 }
 
@@ -143,7 +143,7 @@ nav ul a:hover {
 
 /*------------------ QUICK ACCESS ------------------*/
 .quick-access-section {
-  padding: 30px 150px 30px; /* Espaçamento */
+  padding: 40px 100px 20px 100px; /* Espaçamento */
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
@@ -230,7 +230,7 @@ nav ul a:hover {
 .manifesto-text .section-description {
   font-family: 'Lato', sans-serif;
   font-size: 1.2rem;
-  color: var(--cor-cinza-neutro);
+  color: #000000;
   line-height: 1.7; /* Aumenta o espaçamento entre as linhas para melhor leitura */
   max-width: 550px;
 }
@@ -251,8 +251,7 @@ nav ul a:hover {
   
 }
 
-/* Coluna da Imagem */
-.diferenciais-visual {
+.diferenciais-visual { /* Coluna da Imagem */
   flex-basis: 40%; /* Define a largura base da coluna da imagem */
 }
 
@@ -261,8 +260,7 @@ nav ul a:hover {
   border-radius: 20px; /* Bordas bem arredondadas */
 }
 
-/* Coluna do Conteúdo */
-.diferenciais-conteudo {
+.diferenciais-conteudo { /* Coluna do Conteúdo */
   flex-basis: 60%; /* Define a largura base da coluna de conteúdo */
 }
 
@@ -280,8 +278,7 @@ nav ul a:hover {
   margin-left: 20px;
 }
 
-/* Grid dos Cards */
-.diferenciais-grid {
+.diferenciais-grid { /* Grid dos Cards */
   display: grid;
   grid-template-columns: 1fr 1fr; /* Cria duas colunas de largura igual */
   gap: 20px; /* Espaço entre os cards */
@@ -316,8 +313,7 @@ nav ul a:hover {
   color: #fff;
 }
 
-/* Faixa Laranja Superior */
-.footer-upper {
+.footer-upper { /* Faixa Laranja Superior */
   background-color: #fa680a;
   padding: 2px 0;
 }
@@ -376,11 +372,9 @@ nav ul a:hover {
   opacity: 1;
 }
 
-/* Copyright */
-.footer-lower .footer-copyright {
+.footer-lower .footer-copyright { /* Copyright */
   background-color: #000;
   text-align: center;
-  font-size: 1rem;
-  color: var(--cor-cinza-neutro);
+  color: #ffffff;
   margin-bottom: -50px;
 }
