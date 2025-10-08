@@ -441,74 +441,179 @@ nav ul a:hover {
 
 
 
-/*------------------TELA SOBRE------------------*/
-.banner-principal {
-    width: 100%;
-    /* A altura será definida pela própria imagem para manter a proporção */
+/*========================TELA SOBRE============================*/
+
+/* Seção 1: Hero Image */
+.about-hero {
+  width: 100%;
+  height: 400px; /* Altura da imagem principal */
 }
 
-.banner-principal img {
-    width: 100%;      /* Faz a imagem ocupar 100% da largura do container */
-    height: auto;     /* Mantém a proporção correta da imagem ao redimensionar */
-    display: block;   /* Remove qualquer espaço extra abaixo da imagem */
+.about-hero img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Garante que a imagem cubra a área sem distorcer */
 }
 
-.container-sobre {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 20px;
-}
-
-.sobre-section {
+.about-content {
+  padding: 80px 0;
   background-color: #fff;
-  padding: 40px;
-  border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.sobre-content {
-  display: flex;
-  gap: 40px;
-  align-items: flex-start;
-}
-
-.sobre-texto {
-  flex: 1.3;
-  /* Ocupa 2/3 do espaço */
-}
-
-.sobre-imagem {
-  flex: 1;
-  /* Ocupa 1/3 do espaço */
-  max-width: 100%;
-  border-radius: 8px;
-}
-
-.sobre-texto h1 {
-  color: #ff6600;
-  /* Laranja Galileu */
-  font-size: 2.5em;
-}
-
-.sobre-texto h1 span {
   color: #333;
+  position: relative; /* Necessário para os círculos decorativos */
+  overflow: hidden; /* Garante que os círculos não "vazem" */
 }
 
-.sobre-texto p,
-.sobre-texto ul {
-  font-size: 1.1em;
-  line-height: 1.6;
+.about-content .container {
+  display: flex;
+  gap: 60px;
+  align-items: center; /* Alinha verticalmente o texto com a imagem */
+  padding: 0px 60px 0px 60px;
 }
 
-.sobre-texto ul {
-  list-style: none;
-  padding: 0;
+.about-text {
+  flex-basis: 60%; /* Dando um pouco mais de espaço para o texto */
 }
 
-.sobre-texto ul li {
-  margin-bottom: 15px;
+.about-text h2 {
+  font-family: 'exo 2', sans-serif;
+  font-size: 1.8rem; /* Aumentando um pouco o título */
+  font-weight: 800;
+  color: #000;
+  margin-bottom: -10px;
 }
 
-.sobre-texto ul li strong {
+.about-text p {
+  font-family: 'lato', sans-serif;
+  font-size: 1.2rem;
+  margin-bottom: -10px; /* Aumentando o espaçamento entre parágrafos */
+  color: #000000; /* Um cinza mais suave para o texto */
+}
+
+/* Estilo específico para a lista (Inspiramos, etc.) */
+.about-text ul {
+  list-style: none; /* Remove a bolinha padrão */
+  padding-left: 0;
+  margin-top: 15px;
+}
+
+.about-text ul li {
+  font-family: 'lato', sans-serif;
+  font-size: 1.2rem;
   color: #000000;
+  margin-bottom: 5px;
+  padding-left: 25px; /* Cria espaço para a nossa bolinha customizada */
+  position: relative; /* Define o ponto de referência para a bolinha */
+}
+
+/* Cria a bolinha laranja customizada */
+.about-text ul li::before {
+  content: ''; /* Essencial para pseudo-elementos */
+  position: absolute;
+  left: 0;
+  top: 11px; /* Ajusta a posição vertical da bolinha */
+  width: 7px;
+  height: 7px;
+  background-color: #000000;
+  border-radius: 50%; /* Transforma o quadrado em círculo */
+}
+
+.about-text ul li strong {
+  color: #000;
+  font-weight: 700;
+}
+
+.about-visual {
+  flex-basis: 40%;
+}
+
+.about-visual img {
+  width: 100%;
+  border-radius: 20px;
+}
+
+.join-team-section {
+  background-color: #e6e6e6; /* Fundo cinza claro */
+  padding: 0px 0px 60px;
+}
+
+.join-team-section .container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.join-team-form {
+  text-align: center;
+  max-width: 470px;
+}
+
+.join-team-form h3 {
+  font-family: 'exo 2', sans-serif;
+  font-size: 1.6rem;
+  color: #000;
+  margin-bottom: 10px;
+}
+
+.join-team-form p {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  color: #000000;
+  font-family: 'lato', sans-serif;
+  margin-top: -5px;
+}
+
+.join-team-form-campo {
+  margin-top: 40px;
+}
+
+/* ========================================= */
+/* === MUDANÇAS PRINCIPAIS NOS INPUTS E BOTÃO === */
+/* ========================================= */
+
+.join-team-form input {
+  width: 77%;
+  padding: 7px 20px; /* Padding interno */
+  margin-bottom: 30px;
+  font-family: 'lato', sans-serif;
+  font-size: 1rem;
+
+  /* Estilo do Design */
+  background-color: transparent; /* Fundo transparente */
+  border: 2px solid #fa680a; /* Borda laranja */
+  border-radius: 30px; /* Bordas de "pílula" */
+  color: #333; /* Cor do texto quando o usuário digita */
+}
+
+/* Deixa o texto do placeholder (Nome, E-mail) mais sutil */
+.join-team-form input::placeholder {
+  color: #aaa;
+}
+
+/* Remove a borda padrão que alguns navegadores colocam ao clicar */
+.join-team-form input:focus {
+  outline: none;
+  box-shadow: 0 0 5px rgba(250, 104, 10, 0.5); /* Efeito de brilho laranja opcional */
+}
+
+.join-team-form .btn-cta {
+  width: 40%;
+  border: none;
+  cursor: pointer;
+  padding: 10px; /* Garante a mesma altura dos inputs */
+  border-radius: 30px; /* Bordas de "pílula" */
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  background-color: #fa680a; /* Sobrescreve o estilo padrão de .btn-cta */
+  color: #fff;
+  margin-top: 10px;
+}
+
+.join-team-form .btn-cta:hover {
+    background-color: #e85a00;
+}
+
+/* O estilo dos mascotes continua o mesmo */
+.mascot-left, .mascot-right {
+  height: 150px; 
 }
