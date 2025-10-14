@@ -542,6 +542,17 @@ nav ul a:hover {
   align-items: center;
 }
 
+.join-team-section .mascot-right {
+  width: 25rem;
+  height: auto;
+}
+
+.join-team-section .mascot-left {
+  width: 25rem;
+  height: auto;
+
+}
+
 .join-team-form {
   text-align: center;
   max-width: 470px;
