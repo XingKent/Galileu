@@ -413,13 +413,17 @@ nav ul a:hover {
   color: #fa680a;
 }
 
+
+
+
+/* ajeitar o tamanho dos icones */
 .footer-social a {
-  margin-left: -20px;
+  margin-left: -10px;
   /* Espaço entre os ícones sociais */
 }
 
 .footer-social img {
-  height: 50px;
+  height: 45px;
   /* Tamanho dos ícones */
   opacity: 0.7;
   transition: opacity 0.3s;
