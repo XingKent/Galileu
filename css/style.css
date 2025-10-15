@@ -249,7 +249,7 @@ nav ul a:hover {
 .manifesto-visual video {
   width: 70%;
   /* Faz a imagem ocupar 100% da largura da sua coluna */
-  border-radius: 10px;
+  border-radius: 30px;
   /* Bordas levemente arredondadas para a imagem */
 }
 
