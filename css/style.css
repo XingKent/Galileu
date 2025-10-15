@@ -82,8 +82,7 @@ nav ul a:hover {
 
 /*------------------ HERO SECTION ------------------*/
 .hero-section {
-  /* background-image: url(''); */
-  background-color: #000000;
+  background-image: url('../assets/img/Banner\ Galileu\ Robotics.png'); 
   background-size: cover;
   /* Faz a imagem cobrir toda a área da seção */
   background-position: center;
@@ -274,7 +273,7 @@ nav ul a:hover {
 
 /*------------------ DIFERENCIAIS SECTION ------------------*/
 .diferenciais-section {
-  padding: 80px 100px 80px 80px;
+  padding: 80px 0px 80px 100px;
   background-color: #fff;
   /* Fundo branco */
   color: #000000;
@@ -284,14 +283,14 @@ nav ul a:hover {
 .diferenciais-section .container {
   display: flex;
   align-items: center;
-  gap: 30px;
+  gap: 50px;
   /* Espaço entre a imagem e o conteúdo */
 
 }
 
 .diferenciais-visual {
   /* Coluna da Imagem */
-  flex-basis: 40%;
+  flex-basis: 30%;
   /* Define a largura base da coluna da imagem */
 }
 
@@ -340,6 +339,8 @@ nav ul a:hover {
   /* Bordas arredondadas */
   box-shadow: 5px 5px 0 #d6d6d6;
   /* X | Y | Blur (zero) | Cor */
+  height: 200px;
+
 }
 
 .diferencial-card h3 {
