@@ -221,7 +221,7 @@ nav ul a:hover {
 .manifesto-section {
   padding: 150px 0 100px 0;
   /* Espaçamento interno vertical */
-  background-color: #dddddd;
+  background: linear-gradient(to bottom, #ffffff, #dddddd);
   /* Um cinza bem escuro para diferenciar do preto */
 }
 
@@ -230,7 +230,7 @@ nav ul a:hover {
   /* Ativa o layout flex para criar as colunas */
   align-items: center;
   /* Alinha as duas colunas verticalmente */
-  gap: 50px;
+  gap: 30px;
   /* Espaço entre a coluna de texto e a de imagem */
   margin-left: 100px;
   max-height: 200px;
@@ -246,8 +246,8 @@ nav ul a:hover {
   /* Faz a coluna de imagem ocupar o espaço disponível */
 }
 
-.manifesto-visual img {
-  width: 100%;
+.manifesto-visual video {
+  width: 70%;
   /* Faz a imagem ocupar 100% da largura da sua coluna */
   border-radius: 10px;
   /* Bordas levemente arredondadas para a imagem */
@@ -266,7 +266,7 @@ nav ul a:hover {
   color: #000000;
   line-height: 1.7;
   /* Aumenta o espaçamento entre as linhas para melhor leitura */
-  max-width: 550px;
+  max-width: 700px;
 }
 
 
