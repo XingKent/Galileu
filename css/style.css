@@ -1,3 +1,15 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+img,
+video {
+  max-width: 100%;
+  height: auto;
+}
+
 /*------------------ HEADER ------------------*/
 body {
   margin: 0;
@@ -80,9 +92,13 @@ nav ul a:hover {
 
 
 
+
+
+/*============================HOME PAGE============================*/
+
 /*------------------ HERO SECTION ------------------*/
 .hero-section {
-  background-image: url('../assets/img/Banner\ Galileu\ Robotics.png'); 
+  background-image: url('../assets/img/Banner\ Galileu\ Robotics.png');
   background-size: cover;
   /* Faz a imagem cobrir toda a área da seção */
   background-position: center;
@@ -361,6 +377,10 @@ nav ul a:hover {
 
 
 
+
+
+
+
 /*------------------ FOOTER ------------------*/
 .main-footer {
   color: #fff;
@@ -446,42 +466,51 @@ nav ul a:hover {
 
 
 
+
+
 /*========================TELA SOBRE============================*/
 
 /* Seção 1: Hero Image */
 .about-hero {
   width: 100%;
-  height: 400px; /* Altura da imagem principal */
+  height: 400px;
+  /* Altura da imagem principal */
 }
 
 .about-hero img {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Garante que a imagem cubra a área sem distorcer */
+  object-fit: cover;
+  /* Garante que a imagem cubra a área sem distorcer */
 }
 
 .about-content {
   padding: 80px 0;
   background-color: #fff;
   color: #333;
-  position: relative; /* Necessário para os círculos decorativos */
-  overflow: hidden; /* Garante que os círculos não "vazem" */
+  position: relative;
+  /* Necessário para os círculos decorativos */
+  overflow: hidden;
+  /* Garante que os círculos não "vazem" */
 }
 
 .about-content .container {
   display: flex;
   gap: 60px;
-  align-items: center; /* Alinha verticalmente o texto com a imagem */
+  align-items: center;
+  /* Alinha verticalmente o texto com a imagem */
   padding: 0px 60px 0px 60px;
 }
 
 .about-text {
-  flex-basis: 60%; /* Dando um pouco mais de espaço para o texto */
+  flex-basis: 60%;
+  /* Dando um pouco mais de espaço para o texto */
 }
 
 .about-text h2 {
   font-family: 'exo 2', sans-serif;
-  font-size: 1.8rem; /* Aumentando um pouco o título */
+  font-size: 1.8rem;
+  /* Aumentando um pouco o título */
   font-weight: 800;
   color: #000;
   margin-bottom: -10px;
@@ -490,13 +519,16 @@ nav ul a:hover {
 .about-text p {
   font-family: 'lato', sans-serif;
   font-size: 1.2rem;
-  margin-bottom: -10px; /* Aumentando o espaçamento entre parágrafos */
-  color: #000000; /* Um cinza mais suave para o texto */
+  margin-bottom: -10px;
+  /* Aumentando o espaçamento entre parágrafos */
+  color: #000000;
+  /* Um cinza mais suave para o texto */
 }
 
 /* Estilo específico para a lista (Inspiramos, etc.) */
 .about-text ul {
-  list-style: none; /* Remove a bolinha padrão */
+  list-style: none;
+  /* Remove a bolinha padrão */
   padding-left: 0;
   margin-top: 15px;
 }
@@ -506,20 +538,25 @@ nav ul a:hover {
   font-size: 1.2rem;
   color: #000000;
   margin-bottom: 5px;
-  padding-left: 25px; /* Cria espaço para a nossa bolinha customizada */
-  position: relative; /* Define o ponto de referência para a bolinha */
+  padding-left: 25px;
+  /* Cria espaço para a nossa bolinha customizada */
+  position: relative;
+  /* Define o ponto de referência para a bolinha */
 }
 
 /* Cria a bolinha laranja customizada */
 .about-text ul li::before {
-  content: ''; /* Essencial para pseudo-elementos */
+  content: '';
+  /* Essencial para pseudo-elementos */
   position: absolute;
   left: 0;
-  top: 11px; /* Ajusta a posição vertical da bolinha */
+  top: 11px;
+  /* Ajusta a posição vertical da bolinha */
   width: 7px;
   height: 7px;
   background-color: #000000;
-  border-radius: 50%; /* Transforma o quadrado em círculo */
+  border-radius: 50%;
+  /* Transforma o quadrado em círculo */
 }
 
 .about-text ul li strong {
@@ -537,7 +574,8 @@ nav ul a:hover {
 }
 
 .join-team-section {
-  background-color: #e6e6e6; /* Fundo cinza claro */
+  background-color: #e6e6e6;
+  /* Fundo cinza claro */
   padding: 0px 0px 60px;
 }
 
@@ -584,16 +622,21 @@ nav ul a:hover {
 
 .join-team-form input {
   width: 77%;
-  padding: 7px 20px; /* Padding interno */
+  padding: 7px 20px;
+  /* Padding interno */
   margin-bottom: 30px;
   font-family: 'lato', sans-serif;
   font-size: 1rem;
 
   /* Estilo do Design */
-  background-color: transparent; /* Fundo transparente */
-  border: 2px solid #fa680a; /* Borda laranja */
-  border-radius: 30px; /* Bordas de "pílula" */
-  color: #333; /* Cor do texto quando o usuário digita */
+  background-color: transparent;
+  /* Fundo transparente */
+  border: 2px solid #fa680a;
+  /* Borda laranja */
+  border-radius: 30px;
+  /* Bordas de "pílula" */
+  color: #333;
+  /* Cor do texto quando o usuário digita */
 }
 
 /* Deixa o texto do placeholder (Nome, E-mail) mais sutil */
@@ -604,28 +647,37 @@ nav ul a:hover {
 /* Remove a borda padrão que alguns navegadores colocam ao clicar */
 .join-team-form input:focus {
   outline: none;
-  box-shadow: 0 0 5px rgba(250, 104, 10, 0.5); /* Efeito de brilho laranja opcional */
+  box-shadow: 0 0 5px rgba(250, 104, 10, 0.5);
+  /* Efeito de brilho laranja opcional */
 }
 
 .join-team-form .btn-cta {
   width: 40%;
   border: none;
   cursor: pointer;
-  padding: 10px; /* Garante a mesma altura dos inputs */
-  border-radius: 30px; /* Bordas de "pílula" */
+  padding: 10px;
+  /* Garante a mesma altura dos inputs */
+  border-radius: 30px;
+  /* Bordas de "pílula" */
   font-size: 1rem;
   font-weight: 700;
   text-transform: uppercase;
-  background-color: #fa680a; /* Sobrescreve o estilo padrão de .btn-cta */
+  background-color: #fa680a;
+  /* Sobrescreve o estilo padrão de .btn-cta */
   color: #fff;
   margin-top: 10px;
 }
 
 .join-team-form .btn-cta:hover {
-    background-color: #e85a00;
+  background-color: #e85a00;
 }
 
 /* O estilo dos mascotes continua o mesmo */
-.mascot-left, .mascot-right {
-  height: 150px; 
+.mascot-left,
+.mascot-right {
+  height: 150px;
 }
+
+
+
+/*------------------ EVENTOS ------------------*/
