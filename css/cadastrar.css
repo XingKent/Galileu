@@ -1,0 +1,60 @@
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Exo+2:wght@700;800&family=Lato:wght@400;700&display=swap");
+
+body {
+  background: white;
+  margin: 0;
+  color: #222;
+}
+
+.banner{
+   width: 100%;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 40px;
+}
+
+.login, .cadastro {
+  width: 40%;
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+
+}
+
+.divisoria {
+  width: 4px;
+  height: 650px;
+  background: #fa680a;
+  margin: 0 20px;
+  border-radius: 10px;
+}
+
+h2 {
+  color: black;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  border: 1px solid #fa680a;
+  border-radius: 8px;
+}
+
+button {
+  background: #fa680a;
+  border: none;
+  color: white;
+  font-weight: bold;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #ea5f09 ;
+}
