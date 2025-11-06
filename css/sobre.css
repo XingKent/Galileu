@@ -102,7 +102,7 @@
 }
 
 .join-team-section {
-  background-color: #e6e6e6;
+  background: linear-gradient(to top, #cecece, #fff);
   /* Fundo cinza claro */
   padding: 0px 0px 60px;
 }
