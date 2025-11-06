@@ -1,231 +1,251 @@
 /*------------------ HERO SECTION ------------------*/
 .hero-section {
- background-image: url('../assets/img/Banner\ Galileu\ Robotics.png');
- background-size: cover;
- background-position: center;
- padding: 100px 3%; /* Padding fluido */
+  background-image: url('../assets/img/Banner\ Galileu\ Robotics.png');
+  background-size: cover;
+  background-position: center;
+  padding: 100px 3%;
+  /* Padding fluido */
 }
 
 .hero-section .container {
- max-width: 650px;
- margin-left: auto;
- margin-right: 10%; /* Margem fluida */
- text-align: left;
+  max-width: 650px;
+  margin-left: auto;
+  margin-right: 10%;
+  /* Margem fluida */
+  text-align: left;
 }
 
 .hero-title {
- font-family: 'Exo 2', sans-serif;
- color: #fa680a;
- font-size: 1.5rem;
- font-weight: 800;
- margin: -10px 0 10px 0;
+  font-family: 'Exo 2', sans-serif;
+  color: #fa680a;
+  font-size: 1.5rem;
+  font-weight: 800;
+  margin: -10px 0 10px 0;
 }
 
 .hero-subtitle {
- font-family: 'Exo 2', sans-serif;
- color: #fff;
- font-size: 1.5rem;
- font-weight: 800;
- margin-top: -10px;
- margin-bottom: 20px;
+  font-family: 'Exo 2', sans-serif;
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: 800;
+  margin-top: -10px;
+  margin-bottom: 20px;
 }
 
 .hero-description {
- font-family: 'Lato', sans-serif;
- color: #fff;
- line-height: 1.3;
- margin-bottom: 30px;
- margin-top: -10px;
- max-width: 550px;
+  font-family: 'Lato', sans-serif;
+  color: #fff;
+  line-height: 1.3;
+  margin-bottom: 30px;
+  margin-top: -10px;
+  max-width: 550px;
 }
 
 .littleOrange {
- color: #fa680a;
+  color: #fa680a;
 }
 
 .btn-cta {
- background-color: #fa680a;
- color: #fff;
- font-family: 'Exo 2', sans-serif;
- font-weight: 700;
- text-decoration: none;
- text-transform: uppercase;
- padding: 15px 40px;
- border-radius: 30px;
- transition: background-color 0.3s;
- display: inline-block;
+  background-color: #fa680a;
+  color: #fff;
+  font-family: 'Exo 2', sans-serif;
+  font-weight: 700;
+  text-decoration: none;
+  text-transform: uppercase;
+  padding: 15px 40px;
+  border-radius: 30px;
+  transition: background-color 0.3s;
+  display: inline-block;
 }
 
 .btn-cta:hover {
- background-color: #e85a00;
+  background-color: #e85a00;
 }
 
 
 /*------------------ QUICK ACCESS ------------------*/
+
+/*aumentar o tamanho, gap entre cards e margin bottom */
 .quick-access-section {
- padding: 40px 3% 20px 3%; /* Padding fluido */
- border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+
+  padding: 30px 5% 30px 5%;
+  /* Padding fluido */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .quick-access-section .container {
- display: flex;
- justify-content: center; /* Centraliza os cards */
-  flex-wrap: wrap; /* Permite que os cards quebrem a linha */
- gap: 20px;
+  display: flex;
+  justify-content: center;
+  /* Centraliza os cards */
+  flex-wrap: wrap;
+  /* Permite que os cards quebrem a linha */
+  gap: 7%;
 }
 
 .access-card {
- text-align: center;
- max-width: 250px;
-  flex-basis: 250px; /* Define um tamanho base */
-  flex-grow: 1; /* Permite que cresçam */
+  text-align: center;
+  max-width: 250px;
+  flex-basis: 250px;
+  /* Define um tamanho base */
+  flex-grow: 1;
+  /* Permite que cresçam */
 }
 
 .card-icon {
- height: 70px;
- margin-bottom: -20px;
+  height: 70px;
 }
 
 .card-title {
- color: #fa680a;
- font-family: 'Exo 2', sans-serif;
- font-size: 1.25rem;
- margin-bottom: -15px;
+  color: #fa680a;
+  font-family: 'Exo 2', sans-serif;
+  font-size: 1.25rem;
+  margin-bottom: -15px;
 }
 
 .card-description {
- color: #333;
- font-family: 'Lato', sans-serif;
- font-size: 1rem;
- line-height: 1.2;
+  color: #333;
+  font-family: 'Lato', sans-serif;
+  font-size: 1rem;
+  line-height: 1.2;
 }
 
 .card-link {
- text-decoration: none;
+  text-decoration: none;
 }
 
 .access-card {
- text-align: center;
- transition: transform 0.3s ease;
+  text-align: center;
+  transition: transform 0.3s ease;
 }
 
 .card-link:hover .access-card {
- transform: translateY(-5px);
+  transform: translateY(-5px);
 }
 
 
 /*------------------ MANIFESTO SECTION ------------------*/
 .manifesto-section {
- padding: 100px 0; /* Padding vertical reduzido */
- background: linear-gradient(to bottom, #ffffff, #dddddd);
+  padding: 70px 0 10px 0;
+  /* Padding vertical reduzido */
+  background: linear-gradient(to bottom, #ffffff, #dddddd);
 }
 
 .manifesto-section .container {
- display: flex;
- align-items: center;
- gap: 30px;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 }
 
 .manifesto-text {
- flex: 1;
+  flex: 1;
 }
 
 .manifesto-visual {
- flex: 1;
+  flex: 1;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .manifesto-visual video {
- width: 100%; /* Aumentado para 100% da coluna */
-  max-width: 500px; /* Limite máximo */
- border-radius: 30px;
+  width: 100%;
+  /* Aumentado para 100% da coluna */
+  max-width: 500px;
+  /* Limite máximo */
+  border-radius: 30px;
 }
 
 .manifesto-text .section-title {
- font-family: 'exo 2', sans-serif;
- color: #000000;
- margin-bottom: 20px;
-  font-size: 2.2rem; /* Tamanho base */
+  font-family: 'exo 2', sans-serif;
+  color: #000000;
+  margin-bottom: 20px;
+  font-size: 2.2rem;
+  /* Tamanho base */
 }
 
 .manifesto-text .section-description {
- font-family: 'Lato', sans-serif;
- font-size: 1.1rem; /* Tamanho base */
- color: #000000;
- line-height: 1.7;
- max-width: 700px;
+  font-family: 'Lato', sans-serif;
+  font-size: 1.1rem;
+  /* Tamanho base */
+  color: #000000;
+  line-height: 1.7;
+  max-width: 700px;
 }
 
 
 /*------------------ DIFERENCIAIS SECTION ------------------*/
 .diferenciais-section {
- padding: 80px 3%; /* Padding fluido */
- background-color: #fff;
- color: #000000;
+  padding: 80px 3%;
+  /* Padding fluido */
+  background-color: #fff;
+  color: #000000;
 }
 
 .diferenciais-section .container {
- display: flex;
- align-items: center;
- gap: 50px;
+  display: flex;
+  align-items: center;
+  gap: 50px;
 }
 
 .diferenciais-visual {
- flex-basis: 30%;
-  min-width: 300px; /* Largura mínima para a imagem */
+  flex-basis: 30%;
+  min-width: 300px;
+  /* Largura mínima para a imagem */
 }
 
 .diferenciais-visual img {
- width: 100%;
- border-radius: 20px;
+  width: 100%;
+  border-radius: 20px;
 }
 
 .diferenciais-conteudo {
- flex-basis: 60%;
+  flex-basis: 60%;
   flex-grow: 1;
 }
 
 .diferenciais-conteudo .section-title {
- color: #000000;
- font-size: 1.7rem;
- margin-bottom: -13px;
- margin-left: 20px;
+  color: #000000;
+  font-size: 1.7rem;
+  margin-bottom: -13px;
+  margin-left: 20px;
 }
 
 .diferenciais-conteudo .section-description {
- color: #000000;
- font-size: 1.4rem;
- margin-bottom: 30px;
- margin-left: 20px;
+  color: #000000;
+  font-size: 1.4rem;
+  margin-bottom: 30px;
+  margin-left: 20px;
 }
 
 .diferenciais-grid {
- display: grid;
- grid-template-columns: 1fr 1fr;
- gap: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
 }
 
 .diferencial-card {
- border: 2px solid #050000;
- padding: 20px; /* Padding vertical adicionado */
- border-radius: 50px;
- box-shadow: 5px 5px 0 #d6d6d6;
-  min-height: 200px; /* Garante uma altura mínima, mas pode crescer */
+  border: 2px solid #050000;
+  padding: 20px;
+  /* Padding vertical adicionado */
+  border-radius: 50px;
+  box-shadow: 5px 5px 0 #d6d6d6;
+  min-height: 200px;
+  /* Garante uma altura mínima, mas pode crescer */
 }
 
 .diferencial-card h3 {
- font-family: 'exo 2', sans-serif;
- color: #000000;
- font-size: 1.25rem;
- margin-bottom: 10px; /* Ajustado */
- font-weight: 800;
+  font-family: 'exo 2', sans-serif;
+  color: #000000;
+  font-size: 1.25rem;
+  margin-bottom: 10px;
+  /* Ajustado */
+  font-weight: 800;
 }
 
 .diferencial-card p {
- font-family: 'Lato', sans-serif;
- color: #000000;
- font-size: 1rem; /* Reduzido de 1.25rem */
- line-height: 1.6;
+  font-family: 'Lato', sans-serif;
+  color: #000000;
+  font-size: 1rem;
+  /* Reduzido de 1.25rem */
+  line-height: 1.6;
 }
