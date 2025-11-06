@@ -60,17 +60,17 @@ header .logo img {
 }
 
 nav {
- display: flex;
- justify-content: space-between;
- align-items: center;
-  gap: 20px; /* Adiciona um gap para o caso de o menu quebrar */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px; /* Adiciona um gap para o caso de o menu quebrar */
 }
 
 nav ul {
  display: flex;
   align-items: center;
  list-style: none;
- gap: 40px;
+ gap: 10rem;
 }
 
 nav ul a {
@@ -80,7 +80,7 @@ nav ul a {
  text-decoration: none;
  text-transform: uppercase;
  transition: color 0.3s;
- font-size: 1rem; /* Reduzido de 1.2rem para um base mais seguro */
+ font-size: 1.3rem; /* Aumentado de 1.2rem para um base mais seguro */
 }
 
 nav ul a:hover {
@@ -173,7 +173,7 @@ nav ul a:hover {
 }
 
 .footer-social img {
- height: 45px;
+ height: 50px;
  opacity: 0.7;
  transition: opacity 0.3s;
 }
