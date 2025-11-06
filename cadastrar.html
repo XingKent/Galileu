@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,63 +9,91 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/cadastrar.css">
 </head>
+
 <body>
-        <header>
-      <nav>
-        <div class="logo">
-          <a href="index.html"><img src="./assets/img/GalileuLogo.png" alt="Logo da Galileu Robotics"></a>
-        </div>
-        <ul>
-          <li><a href="eventos.html">Eventos</a></li>
-          <li><a href="blog.html">Blog</a></li>
-          <li><a href="artigo.html">Forum</a></li>
-          <li><a href="sobre.html">Sobre Nós</a></li>
-        </ul>
-        <div class="auth-buttons">
-          <a href="cadastrar.html" class="btn"><img src="./assets/img/leoLogin.png" alt="LoginLeo"> LOGIN / CADASTRE-SE</a>
-        </div>
-      </nav>
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="index.html"><img src="./assets/img/GalileuLogo.png" alt="Logo da Galileu Robotics"></a>
+            </div>
+            <ul>
+                <li><a href="eventos.html">Eventos</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="artigo.html">Forum</a></li>
+                <li><a href="sobre.html">Sobre Nós</a></li>
+            </ul>
+            <div class="auth-buttons">
+                <a href="cadastrar.html" class="btn"><img src="./assets/img/leoLogin.png" alt="LoginLeo"> LOGIN /
+                    CADASTRE-SE</a>
+            </div>
+        </nav>
     </header>
 
     <main>
-        <!--Aqui é a imagem de banner com vários leos-->
-        <div class="banner"><img  src="" alt="banner com vários leos laranjas"></div>
-        <!--Aqui é a parte de login com futuro php-->
-        <div class="container">
-        <section class="login">
-        <h2>Faça o login</h2>
-        <form action="login.php" method="POST">
-            <input type="email" name="email" placeholder="Email" required>
-            <input type="password" name="senha" placeholder="Senha" required>
-            <a href="#">Esqueceu a senha?</a> <br>
-            <button type="submit">ENTRAR</button>
-        </form>
-        </section>
-<!--Faixa de divisão central-->
-        <div class="divisoria"></div>
+        <div class="banner">
+            <img src="./assets/img/banner com vários leos laranjas.png" alt="banner com vários leos laranjas">
+        </div>
 
-<!-- Aqui é a parte de cadastro, precisa em ambos formulários diminuir a fonte-->
-        <section class="cadastro">
-        <h2>Crie uma nova conta</h2>
-        <p>É rápido e fácil</p>
-        <form action="cadastro.php" method="POST">
-            <input type="email" name="email" placeholder="Email" required>
-            <input type="text" name="nome" placeholder="Nome completo" required>
-            <input type="date" name="nascimento" required>
-            <div class="row">
-            <input type="text" name="cpf" placeholder="CPF" required>
-            <input type="tel" name="telefone" placeholder="Telefone" required>
-            </div>
-            <input type="password" name="senha" placeholder="Senha" required>
-            <input type="password" name="confirmar" placeholder="Confirmar Senha" required>
-            <button type="submit">CADASTRE-SE</button>
-        </form>
-        </section>
+        <div class="auth-container">
+            
+            <section class="login">
+                <h2>Faça o login</h2>
+                <form id="login-form">
+                    <div class="form-group">
+                        <input type="email" placeholder="Email" id="login-email" name="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <input type="password" placeholder="Senha" id="login-senha" name="senha" required>
+                    </div>
+
+                    <a href="#" class="forgot-password">Esqueceu a senha?</a>
+                    <button type="submit">ENTRAR</button>
+                </form>
+            </section>
+            
+            <div class="divisoria"></div>
+
+            <section class="cadastro">
+                <h2>Crie uma nova conta</h2>
+                <p>É rápido e fácil</p>
+                <form id="cadastro-form"> <div class="form-group">
+                        <input type="email" placeholder="Email" id="cadastro-email" name="email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="text" placeholder="Nome Completo" id="cadastro-nome" name="nome" required>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="date" id="cadastro-nascimento" name="nascimento" required>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="form-group">
+                            <input type="text" placeholder="CPF" id="cadastro-cpf" name="cpf" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" placeholder="Telefone" id="cadastro-telefone" name="telefone" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="password" placeholder="Senha" id="cadastro-senha" name="senha" required>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="password" placeholder="Confirmar Senha" id="cadastro-confirmar" name="confirmar" required>
+                    </div>
+
+                    <button type="submit">CADASTRE-SE</button>
+                </form>
+            </section>
         </div>
     </main>
 
 
-      <footer class="main-footer">
+    <footer class="main-footer">
         <div class="footer-upper"></div> <!-- Faixa Laranja Superior -->
         <div class="footer-lower">
             <div class="container">
@@ -86,7 +115,7 @@
                 </div>
                 <div class="footer-social">
                     <a href="https://www.instagram.com/galileurobotics"><img src="./assets/img/instaIcon.png" alt="Instagram"></a>
-                    <a href="https://www.linkedin.com/company/galileu-robotics/?viewAsMember=true"><img src="./assets/img/instaIcon.png" alt=""></a>
+                    <a href="https://www.linkedin.com/company/galileu-robotics/?viewAsMember=true"><img src="./assets/img/linkedinIcon.png" alt=""></a>
                     <a href="#"><img src="./assets/img/youtubeIcon.png" alt=""></a>
                 </div>
             </div>
@@ -98,4 +127,5 @@
     </footer>
     <script src="script.js"></script>
 </body>
+
 </html>
