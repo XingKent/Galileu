@@ -1,60 +1,157 @@
+/*Por favor não mexa nesse codigo.
+  não sei como está funcionando e nem se está responsivo
+  na minha maquina funciona e nem eu sei como
+  obrigado*/
+
+/* Importa as fontes */
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Exo+2:wght@700;800&family=Lato:wght@400;700&display=swap");
 
+/* Resets e Estilos Globais */
 body {
-  background: white;
+  background: #fff; /* Fundo branco, como no design */
   margin: 0;
   color: #222;
+  font-family: 'Lato', sans-serif;
 }
 
-.banner{
-   width: 100%;
+/* Garante que o padding não "estoure" a largura dos elementos */
+* {
+  box-sizing: border-box;
 }
 
-.container {
+/* Estilização do Banner no Topo */
+.banner {
+  width: 80%;
+  margin: auto auto auto auto; /* Centraliza e dá espaçamento */
+  text-align: center;
+}
+
+/* Container principal que segura as duas colunas */
+.auth-container {
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  padding: 40px;
+  max-width: 100%;
+  margin: 0 auto 4%; /* Centraliza o container */
+  padding: 0 20px;
+  gap: 5%; /* Espaço entre as colunas e a divisória */
 }
 
+/* Estilo das colunas de Login e Cadastro */
 .login, .cadastro {
-  width: 40%;
-  background: white;
-  padding: 30px;
-  border-radius: 10px;
-
+  flex-basis: 400px; /* Largura base de cada coluna */
+  flex-grow: 1; /* Permite que cresçam se houver espaço */
+  max-width: 400px; /* Limite máximo */
 }
 
+.login h2{
+  margin-bottom: 55px;
+}
+
+
+/* Linha Laranja Vertical */
 .divisoria {
-  width: 4px;
-  height: 650px;
+  width: 3px;
+  height: 600px; /* Altura da linha */
   background: #fa680a;
-  margin: 0 20px;
-  border-radius: 10px;
+  border-radius: 30px;
 }
 
+/* Estilização dos Textos */
 h2 {
-  color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Exo 2', sans-serif;
+  font-weight: 800;
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 1.8rem; /* Fonte menor, como pedido */
 }
 
-input {
+.cadastro p {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  margin-top: 0;
+  margin-bottom: 25px;
+}
+
+/* Agrupador de Label + Input */
+.form-group {
+  margin-bottom: 25px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #555;
+}
+
+/* Estilização dos Campos de Input */
+input[type="email"],
+input[type="password"],
+input[type="text"],
+input[type="date"],
+input[type="tel"] {
   width: 100%;
-  padding: 10px;
-  margin: 8px 0;
-  border: 1px solid #fa680a;
-  border-radius: 8px;
+  padding: 0.5rem 0.75rem;
+  margin: 0;
+  border: 2px solid #fa680a;
+  border-radius: 30px; /* Bordas de "pílula" */
+  font-size: 1rem;
 }
 
+/* Remove a borda padrão do navegador ao clicar */
+input:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgba(250, 104, 10, 0.5);
+}
+
+/* Linha do CPF + Telefone */
+.row {
+  display: flex;
+  gap: 15px; /* Espaço entre os dois campos */
+}
+.row .form-group {
+  flex: 1; /* Faz os dois campos dividirem o espaço */
+}
+
+/* Link "Esqueceu a senha?" */
+.forgot-password {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  font-size: 1rem;
+  color: #555;
+  text-decoration: none;
+}
+.forgot-password:hover {
+    text-decoration: underline;
+}
+
+/* Estilização dos Botões */
 button {
+  display: block; /* Transforma o botão em um bloco */
+  margin: 0 auto; /* Centraliza o bloco */
   background: #fa680a;
   border: none;
   color: white;
-  font-weight: bold;
-  padding: 10px 20px;
-  border-radius: 8px;
+  font-family: 'Exo 2', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 12px 30px;
+  border-radius: 30px; /* Bordas de "pílula" */
   cursor: pointer;
+  font-size: 1.2rem;
+  transition: background-color 0.3s;
 }
 
 button:hover {
-  background: #ea5f09 ;
+  background: #e05a00; /* Laranja mais escuro */
 }
