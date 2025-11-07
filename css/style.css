@@ -121,73 +121,88 @@ nav ul a:hover {
 
 /*------------------ FOOTER ------------------*/
 .main-footer {
- color: #fff;
+    color: #fff;
 }
 
 .footer-upper {
- background-color: #fa680a;
- padding: 2px 0;
+    background-color: #fa680a;
+    padding: 2px 0;
 }
 
 .footer-lower {
- background-color: #000;
- padding: 30px 0;
+    background-color: #000;
+    padding: 30px 0 1px 0;
+}
+
+/* Este é o container das colunas 'Ajuda' e 'Redes' */
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start; /* Alinha pelo topo */
+    padding: 0 3%;
+    max-width: 75%;
+    margin: 0 auto;    /* Centralizar o container */
 }
 
 .footer-title h3 {
- font-family: 'exo 2';
- font-size: 1.2rem;
- color: #ffffff;
- margin: 0;
-}
-
-.footer-lower .container {
- display: flex;
- justify-content: space-between;
- align-items: flex-start;
- padding: 0 3%; /* Padding fluido */
+    font-family: 'exo 2';
+    font-size: 1.2rem;
+    color: #ffffff;
+    margin: 0 0 15px 0; /* Adiciona espaço abaixo do título */
 }
 
 .footer-links ul {
- list-style: none;
- padding: 0;
+    list-style: none;
+    padding: 0;
+    margin: 0; /* Remove margem padrão do <ul> */
 }
 
 .footer-links ul li {
- margin-bottom: 10px;
+    margin-bottom: 10px;
 }
 
 .footer-links a {
- color: #fff;
- font-size: 1.2rem;
- text-decoration: none;
- transition: color 0.3s;
+    color: #fff;
+    font-size: 1.2rem;
+    text-decoration: none;
+    transition: color 0.3s;
 }
 
 .footer-links a:hover {
- color: #fa680a;
+    color: #fa680a;
 }
 
 .footer-social a {
- margin-left: -10px;
+    display: inline-block; /* Melhor que 'inline' para ícones */
+    margin-right: 10px;
 }
 
 .footer-social img {
- height: 50px;
- opacity: 0.7;
- transition: opacity 0.3s;
+    width: 32px;  /* Define um tamanho fixo em vez de % */
+    height: 32px; /* Garante que seja quadrado */
+    opacity: 0.7;
+    transition: opacity 0.3s;
 }
 
 .footer-social a:hover img {
- opacity: 1;
+    opacity: 1;
 }
 
-.footer-lower .footer-copyright {
- background-color: #000;
- text-align: center;
- color: #ffffff;
- margin-bottom: -50px;
+/* Container do Copyright */
+.footer-copyright-container {
+    max-width: 1200px;
+    margin: 0 auto; /* Centraliza */
+    padding: 0 3%;
 }
+
+/* Estilo do Copyright */
+.footer-copyright {
+    text-align: center;
+    color: #ffffff;
+    margin-bottom: -5px;
+}
+
+/* Removemos a regra antiga .footer-lower .container que não se aplica mais */
 
 /* ==========================================================================
    REGRAS DE RESPONSIVIDADE (MEDIA QUERIES)
