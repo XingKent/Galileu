@@ -133,7 +133,7 @@
 .manifesto-section .container {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 8rem;
 }
 
 .manifesto-text {
@@ -147,10 +147,11 @@
   align-items: center;
 }
 
+/*arrumar o tamanho do video */
 .manifesto-visual video {
   width: 100%;
   /* Aumentado para 100% da coluna */
-  max-width: 500px;
+  max-width: auto;
   /* Limite máximo */
   border-radius: 30px;
 }
@@ -159,7 +160,7 @@
   font-family: 'exo 2', sans-serif;
   color: #000000;
   margin-bottom: 20px;
-  font-size: 2.2rem;
+  font-size: 1.7rem;
   /* Tamanho base */
 }
 
@@ -168,23 +169,22 @@
   font-size: 1.1rem;
   /* Tamanho base */
   color: #000000;
-  line-height: 1.7;
+  line-height: 1.4;
   max-width: 700px;
 }
 
 
 /*------------------ DIFERENCIAIS SECTION ------------------*/
 .diferenciais-section {
-  padding: 80px 3%;
+  padding: 1rem 3% 4rem 3%;
   /* Padding fluido */
-  background-color: #fff;
-  color: #000000;
+  background-color: #ffffff;
 }
 
 .diferenciais-section .container {
   display: flex;
   align-items: center;
-  gap: 50px;
+  gap: 2rem;
 }
 
 .diferenciais-visual {
@@ -201,6 +201,7 @@
 .diferenciais-conteudo {
   flex-basis: 60%;
   flex-grow: 1;
+  margin-top: 30px;
 }
 
 .diferenciais-conteudo .section-title {
@@ -236,7 +237,7 @@
 .diferencial-card h3 {
   font-family: 'exo 2', sans-serif;
   color: #000000;
-  font-size: 1.25rem;
+  font-size: 1.4rem;
   margin-bottom: 10px;
   /* Ajustado */
   font-weight: 800;
