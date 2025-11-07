@@ -8,7 +8,8 @@
 
 /* Resets e Estilos Globais */
 body {
-  background: #fff; /* Fundo branco, como no design */
+  background: #fff;
+  /* Fundo branco, como no design */
   margin: 0;
   color: #222;
   font-family: 'Lato', sans-serif;
@@ -22,7 +23,8 @@ body {
 /* Estilização do Banner no Topo */
 .banner {
   width: 80%;
-  margin: auto auto auto auto; /* Centraliza e dá espaçamento */
+  margin: auto auto auto auto;
+  /* Centraliza e dá espaçamento */
   text-align: center;
 }
 
@@ -32,19 +34,25 @@ body {
   justify-content: center;
   align-items: flex-start;
   max-width: 100%;
-  margin: 0 auto 4%; /* Centraliza o container */
+  margin: 0 auto 4%;
+  /* Centraliza o container */
   padding: 0 20px;
-  gap: 5%; /* Espaço entre as colunas e a divisória */
+  gap: 5%;
+  /* Espaço entre as colunas e a divisória */
 }
 
 /* Estilo das colunas de Login e Cadastro */
-.login, .cadastro {
-  flex-basis: 400px; /* Largura base de cada coluna */
-  flex-grow: 1; /* Permite que cresçam se houver espaço */
-  max-width: 400px; /* Limite máximo */
+.login,
+.cadastro {
+  flex-basis: 400px;
+  /* Largura base de cada coluna */
+  flex-grow: 1;
+  /* Permite que cresçam se houver espaço */
+  max-width: 400px;
+  /* Limite máximo */
 }
 
-.login h2{
+.login h2 {
   margin-bottom: 55px;
 }
 
@@ -52,7 +60,8 @@ body {
 /* Linha Laranja Vertical */
 .divisoria {
   width: 3px;
-  height: 600px; /* Altura da linha */
+  height: 600px;
+  /* Altura da linha */
   background: #fa680a;
   border-radius: 30px;
 }
@@ -66,7 +75,8 @@ h2 {
   font-weight: 800;
   margin-top: 0;
   margin-bottom: 10px;
-  font-size: 1.8rem; /* Fonte menor, como pedido */
+  font-size: 1.8rem;
+  /* Fonte menor, como pedido */
 }
 
 .cadastro p {
@@ -101,23 +111,27 @@ input[type="tel"] {
   padding: 0.5rem 0.75rem;
   margin: 0;
   border: 2px solid #fa680a;
-  border-radius: 30px; /* Bordas de "pílula" */
+  border-radius: 30px;
+  /* Bordas de "pílula" */
   font-size: 1rem;
 }
 
 /* Remove a borda padrão do navegador ao clicar */
 input:focus {
-    outline: none;
-    box-shadow: 0 0 5px rgba(250, 104, 10, 0.5);
+  outline: none;
+  box-shadow: 0 0 5px rgba(250, 104, 10, 0.5);
 }
 
 /* Linha do CPF + Telefone */
 .row {
   display: flex;
-  gap: 15px; /* Espaço entre os dois campos */
+  gap: 15px;
+  /* Espaço entre os dois campos */
 }
+
 .row .form-group {
-  flex: 1; /* Faz os dois campos dividirem o espaço */
+  flex: 1;
+  /* Faz os dois campos dividirem o espaço */
 }
 
 /* Link "Esqueceu a senha?" */
@@ -131,14 +145,17 @@ input:focus {
   color: #555;
   text-decoration: none;
 }
+
 .forgot-password:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 /* Estilização dos Botões */
 button {
-  display: block; /* Transforma o botão em um bloco */
-  margin: 0 auto; /* Centraliza o bloco */
+  display: block;
+  /* Transforma o botão em um bloco */
+  margin: 0 auto;
+  /* Centraliza o bloco */
   background: #fa680a;
   border: none;
   color: white;
@@ -146,12 +163,14 @@ button {
   font-weight: 700;
   text-transform: uppercase;
   padding: 12px 30px;
-  border-radius: 30px; /* Bordas de "pílula" */
+  border-radius: 30px;
+  /* Bordas de "pílula" */
   cursor: pointer;
   font-size: 1.2rem;
   transition: background-color 0.3s;
 }
 
 button:hover {
-  background: #e05a00; /* Laranja mais escuro */
+  background: #e05a00;
+  /* Laranja mais escuro */
 }

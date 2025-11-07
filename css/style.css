@@ -1,13 +1,13 @@
 *,
 *::before,
 *::after {
- box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 img,
 video {
- max-width: 100%;
- height: auto;
+    max-width: 100%;
+    height: auto;
 }
 
 /* ==========================================================================
@@ -16,26 +16,30 @@ video {
 */
 
 body {
- margin: 0;
- background: #ffffff;
-  /* Garante que a fonte não fique "pixelada" ao diminuir */
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    margin: 0;
+    background: #ffffff;
+    /* Garante que a fonte não fique "pixelada" ao diminuir */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 html {
-  /* Define o tamanho base da fonte. 1rem = 16px */
-  font-size: 100%; 
+    /* Define o tamanho base da fonte. 1rem = 16px */
+    font-size: 100%;
 }
 
 /* Classe de container global que usaremos */
 .container {
     width: 90%;
-    max-width: 1280px; /* Limite máximo de largura */
-    margin: 0 auto; /* Centraliza */
+    max-width: 1280px;
+    /* Limite máximo de largura */
+    margin: 0 auto;
+    /* Centraliza */
 }
 
-.h1, .h2, .h3{
+.h1,
+.h2,
+.h3 {
     font-family: 'Exo 2', sans-serif;
     color: #fa680a;
     font-size: 1.5rem;
@@ -46,77 +50,84 @@ html {
 
 /*------------------ HEADER ------------------*/
 header {
- background: #000000;
- color: #fff;
- padding: 15px 3%; /* Padding fluido em vez de 30px fixo */
- position: sticky;
- top: 0;
- z-index: 1000;
+    background: #000000;
+    color: #fff;
+    padding: 15px 3%;
+    /* Padding fluido em vez de 30px fixo */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
 header .logo img {
- width: 150px;
- vertical-align: middle;
+    width: 150px;
+    vertical-align: middle;
 }
 
 nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 20px; /* Adiciona um gap para o caso de o menu quebrar */
+    gap: 20px;
+    /* Adiciona um gap para o caso de o menu quebrar */
 }
 
 nav ul {
- display: flex;
-  align-items: center;
- list-style: none;
- gap: 10rem;
+    display: flex;
+    align-items: center;
+    list-style: none;
+    gap: 10rem;
 }
 
 nav ul a {
- color: #fff;
- font-family: 'Exo 2', sans-serif;
- font-weight: 700;
- text-decoration: none;
- text-transform: uppercase;
- transition: color 0.3s;
- font-size: 1.3rem; /* Aumentado de 1.2rem para um base mais seguro */
+    color: #fff;
+    font-family: 'Exo 2', sans-serif;
+    font-weight: 700;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: color 0.3s;
+    font-size: 1.3rem;
+    /* Aumentado de 1.2rem para um base mais seguro */
 }
 
 nav ul a:hover {
- color: #fa680a;
+    color: #fa680a;
 }
 
 .auth-buttons a.btn {
- background-color: #fa680a;
- color: #fff;
- text-decoration: none;
- font-family: 'Exo 2', sans-serif;
- font-weight: 700;
- text-transform: uppercase;
- border-radius: 30px;
- transition: background-color 0.3s;
- position: relative;
- display: inline-flex;
- align-items: center;
- height: 35px; /* Aumentei um pouco a altura para o texto caber */
-  /* Padding: Cima/Baixo | Direita | Esquerda */
- padding: 0 20px 0 60px; 
- font-size: 0.9rem; /* Reduzido para caber melhor */
- box-sizing: border-box;
-  white-space: nowrap; /* Impede que o texto quebre */
+    background-color: #fa680a;
+    color: #fff;
+    text-decoration: none;
+    font-family: 'Exo 2', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    border-radius: 30px;
+    transition: background-color 0.3s;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    height: 35px;
+    /* Aumentei um pouco a altura para o texto caber */
+    /* Padding: Cima/Baixo | Direita | Esquerda */
+    padding: 0 20px 0 60px;
+    font-size: 0.9rem;
+    /* Reduzido para caber melhor */
+    box-sizing: border-box;
+    white-space: nowrap;
+    /* Impede que o texto quebre */
 }
 
 .auth-buttons a.btn:hover {
- background-color: #e85a00;
+    background-color: #e85a00;
 }
 
 .auth-buttons img {
- position: absolute;
- height: 100%;
- width: auto;
- top: 0;
- left: 10px; /* Um pouco mais perto da borda */
+    position: absolute;
+    height: 100%;
+    width: auto;
+    top: 0;
+    left: 10px;
+    /* Um pouco mais perto da borda */
 }
 
 /*------------------ FOOTER ------------------*/
@@ -138,23 +149,27 @@ nav ul a:hover {
 .footer-content {
     display: flex;
     justify-content: space-between;
-    align-items: flex-start; /* Alinha pelo topo */
+    align-items: flex-start;
+    /* Alinha pelo topo */
     padding: 0 3%;
     max-width: 75%;
-    margin: 0 auto;    /* Centralizar o container */
+    margin: 0 auto;
+    /* Centralizar o container */
 }
 
 .footer-title h3 {
     font-family: 'exo 2';
     font-size: 1.2rem;
     color: #ffffff;
-    margin: 0 0 15px 0; /* Adiciona espaço abaixo do título */
+    margin: 0 0 15px 0;
+    /* Adiciona espaço abaixo do título */
 }
 
 .footer-links ul {
     list-style: none;
     padding: 0;
-    margin: 0; /* Remove margem padrão do <ul> */
+    margin: 0;
+    /* Remove margem padrão do <ul> */
 }
 
 .footer-links ul li {
@@ -173,13 +188,16 @@ nav ul a:hover {
 }
 
 .footer-social a {
-    display: inline-block; /* Melhor que 'inline' para ícones */
+    display: inline-block;
+    /* Melhor que 'inline' para ícones */
     margin-right: 10px;
 }
 
 .footer-social img {
-    width: 32px;  /* Define um tamanho fixo em vez de % */
-    height: 32px; /* Garante que seja quadrado */
+    width: 32px;
+    /* Define um tamanho fixo em vez de % */
+    height: 32px;
+    /* Garante que seja quadrado */
     opacity: 0.7;
     transition: opacity 0.3s;
 }
@@ -191,7 +209,8 @@ nav ul a:hover {
 /* Container do Copyright */
 .footer-copyright-container {
     max-width: 1200px;
-    margin: 0 auto; /* Centraliza */
+    margin: 0 auto;
+    /* Centraliza */
     padding: 0 3%;
 }
 
@@ -212,7 +231,8 @@ nav ul a:hover {
 /* Para Desktops menores e Laptops (ex: 1440px para baixo) */
 @media (max-width: 1440px) {
     html {
-        font-size: 90%; /* 1rem agora é ~14.4px */
+        font-size: 90%;
+        /* 1rem agora é ~14.4px */
     }
 }
 
@@ -220,20 +240,24 @@ nav ul a:hover {
 /* Para Laptops menores (ex: 1200px para baixo) */
 @media (max-width: 1200px) {
     html {
-        font-size: 85%; /* 1rem agora é ~13.6px */
+        font-size: 85%;
+        /* 1rem agora é ~13.6px */
     }
 
     nav ul {
-        gap: 30px; /* Diminui mais o gap do menu */
+        gap: 30px;
+        /* Diminui mais o gap do menu */
     }
 
     .manifesto-section .container {
-        flex-direction: column; /* Coloca o texto em cima do vídeo */
+        flex-direction: column;
+        /* Coloca o texto em cima do vídeo */
         text-align: center;
     }
 
     .diferenciais-section .container {
-        flex-direction: column; /* Coloca a imagem em cima do conteúdo */
+        flex-direction: column;
+        /* Coloca a imagem em cima do conteúdo */
         gap: 30px;
     }
 
@@ -247,43 +271,52 @@ nav ul a:hover {
 
 /* Para Tablets (ex: 992px para baixo) */
 @media (max-width: 992px) {
-    
+
     /* Quebra o header: logo em cima, menu e botão embaixo */
     nav {
-        flex-wrap: wrap; /* Permite que os itens quebrem a linha */
-        justify-content: center; /* Centraliza tudo */
+        flex-wrap: wrap;
+        /* Permite que os itens quebrem a linha */
+        justify-content: center;
+        /* Centraliza tudo */
         gap: 25px;
     }
 
     nav ul {
         gap: 20px;
-        padding: 0; /* Remove padding do <ul> */
-        order: 3; /* Coloca o menu por último */
+        padding: 0;
+        /* Remove padding do <ul> */
+        order: 3;
+        /* Coloca o menu por último */
         width: 100%;
         justify-content: center;
         flex-wrap: wrap;
     }
 
     .logo {
-        order: 1; /* Logo vem primeiro */
+        order: 1;
+        /* Logo vem primeiro */
     }
 
     .auth-buttons {
-        order: 2; /* Botão de login vem em segundo */
+        order: 2;
+        /* Botão de login vem em segundo */
     }
 
     .hero-section .container {
-        margin: 0 auto; /* Centraliza o texto do hero */
+        margin: 0 auto;
+        /* Centraliza o texto do hero */
         text-align: center;
         padding: 0 5%;
     }
 
     .diferenciais-grid {
-        grid-template-columns: 1fr; /* Uma coluna só para os cards */
+        grid-template-columns: 1fr;
+        /* Uma coluna só para os cards */
     }
 
     .diferencial-card {
-        min-height: auto; /* Remove a altura mínima */
+        min-height: auto;
+        /* Remove a altura mínima */
     }
 }
 
@@ -291,16 +324,19 @@ nav ul a:hover {
 /* Para celulares (ex: 768px para baixo) */
 @media (max-width: 768px) {
     html {
-        font-size: 80%; /* 1rem agora é ~12.8px */
+        font-size: 80%;
+        /* 1rem agora é ~12.8px */
     }
-    
+
     .quick-access-section .container {
-        flex-direction: column; /* Empilha os 4 cards de acesso */
+        flex-direction: column;
+        /* Empilha os 4 cards de acesso */
         align-items: center;
     }
 
     .footer-lower .container {
-        flex-direction: column; /* Empilha as colunas do footer */
+        flex-direction: column;
+        /* Empilha as colunas do footer */
         align-items: center;
         gap: 30px;
         text-align: center;
@@ -311,6 +347,7 @@ nav ul a:hover {
     }
 
     .footer-social a {
-        margin: 0 10px; /* Ajusta o espaçamento dos ícones */
+        margin: 0 10px;
+        /* Ajusta o espaçamento dos ícones */
     }
 }
