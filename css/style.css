@@ -47,6 +47,10 @@ html {
     margin: -10px 0 10px 0;
 }
 
+.littleOrange {
+  color: #fa680a;
+}
+
 
 /*------------------ HEADER ------------------*/
 header {
@@ -189,7 +193,7 @@ nav ul a:hover {
 
 .footer-social a {
     display: inline-block;
-    /* Melhor que 'inline' para ícones */
+    /* usar inline-block para icones */
     margin-right: 10px;
 }
 
@@ -220,8 +224,6 @@ nav ul a:hover {
     color: #ffffff;
     margin-bottom: -5px;
 }
-
-/* Removemos a regra antiga .footer-lower .container que não se aplica mais */
 
 /* ==========================================================================
    REGRAS DE RESPONSIVIDADE (MEDIA QUERIES)
