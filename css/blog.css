@@ -1,0 +1,199 @@
+.page-blog {
+    background-color: #fff;
+}
+
+/* Título da seção "Pílulas de conhecimento" */
+.pills-section {
+    padding-top: 40px;
+}
+
+.pills-section .section-title {
+    color: #000;
+    font-family: 'Exo 2', sans-serif;
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.events-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.event-card {
+    background-color: #fff;
+    /* Adiciona o fundo branco */
+    border: 1px solid #000000;
+    border-radius: 30px;
+    overflow: hidden;
+    transition: transform 0.3s;
+    text-align: center;
+    /* Centraliza o conteúdo de texto */
+}
+
+/* Regra corrigida para a imagem */
+.event-card img {
+    width: 100%;
+    height: 200px;
+    /* Define uma altura fixa para as imagens */
+    object-fit: cover;
+    /* Garante que a imagem cubra o espaço sem distorcer */
+}
+
+.card-content {
+    padding: 20px;
+    /* Adiciona um respiro interno */
+}
+
+.card-content h3 {
+    font-family: 'Exo 2', sans-serif;
+    font-size: 1.6rem;
+    color: #000;
+}
+
+.card-content p {
+    font-family: 'Lato', sans-serif;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Regra corrigida para o botão */
+.btn-card {
+    display: inline-block;
+    /* Comportamento de botão */
+    background: #fa680a;
+    border: none;
+    color: white;
+    font-family: 'Exo 2', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 10px 30px;
+    /* Padding correto (vertical | horizontal) */
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 1rem;
+    /* Um pouco menor para caber bem */
+    transition: background-color 0.3s;
+}
+
+.btn-card:hover {
+    background: #e05a00;
+}
+
+
+/* Seção dos Filtros */
+.blog-filters {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    margin: 40px 0;
+}
+
+.search-bar,
+.category-select {
+    flex-basis: 48%;
+    /* Cada um ocupa quase metade do espaço */
+    position: relative;
+}
+
+/* Estilo do Input de Busca e do Select */
+.search-bar input,
+.category-select select {
+    width: 100%;
+    height: 50px;
+    padding: 0 20px;
+    border: 2px solid #ccc;
+    border-radius: 30px;
+    font-size: 1rem;
+    font-family: 'Lato', sans-serif;
+    -webkit-appearance: none;
+    /* Remove estilo padrão do select no iOS */
+    -moz-appearance: none;
+    /* Remove estilo padrão do select no Firefox */
+    appearance: none;
+    /* Remove estilo padrão do select */
+    background-color: #fff;
+}
+
+/* Botão de busca (ícone) */
+.search-bar button {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/* Seta do Dropdown */
+.category-select::after {
+    content: '▼';
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    /* Permite clicar no select por baixo */
+}
+
+/* Seção da Lista de Artigos */
+.blog-list {
+    margin-bottom: 60px;
+}
+
+.post-item {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    border: 2px solid #eee;
+    border-radius: 20px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.post-image {
+    flex-basis: 300px;
+    flex-shrink: 0;
+    /* Impede que a imagem encolha */
+}
+
+.post-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+.post-content h3 {
+    font-family: 'Exo 2', sans-serif;
+    color: #000;
+    font-size: 1.8rem;
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+.post-content p {
+    font-family: 'Lato', sans-serif;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.btn-post {
+    background-color: var(--cor-laranja-grc);
+    color: #fff;
+    padding: 10px 30px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: background-color 0.3s;
+    font-family: 'Exo 2', sans-serif;
+}
+
+.btn-post:hover {
+    background-color: #e85a00;
+}
