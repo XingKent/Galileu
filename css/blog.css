@@ -79,7 +79,7 @@
 }
 
 .btn-card:hover {
-    background: #e05a00;
+    background: #fa680a;
 }
 
 
@@ -184,7 +184,7 @@
 }
 
 .btn-post {
-    background-color: var(--cor-laranja-grc);
+    background-color: #fa680a;
     color: #fff;
     padding: 10px 30px;
     border-radius: 20px;
