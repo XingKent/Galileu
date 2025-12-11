@@ -4,7 +4,7 @@
 
 /* Título da seção "Pílulas de conhecimento" */
 .pills-section {
-    padding-top: 40px;
+    padding-top: 10px;
 }
 
 .pills-section .section-title {
@@ -22,6 +22,7 @@
 }
 
 .event-card {
+    width: 95%;
     background-color: #fff;
     /* Adiciona o fundo branco */
     border: 1px solid #000000;
@@ -35,7 +36,7 @@
 /* Regra corrigida para a imagem */
 .event-card img {
     width: 100%;
-    height: 200px;
+    height: 250px;
     /* Define uma altura fixa para as imagens */
     object-fit: cover;
     /* Garante que a imagem cubra o espaço sem distorcer */
@@ -43,7 +44,6 @@
 
 .card-content {
     padding: 20px;
-    /* Adiciona um respiro interno */
 }
 
 .card-content h3 {
@@ -104,9 +104,9 @@
     width: 100%;
     height: 50px;
     padding: 0 20px;
-    border: 2px solid #ccc;
+    border: 2px solid #000000;
     border-radius: 30px;
-    font-size: 1rem;
+    font-size: 1.2rem;
     font-family: 'Lato', sans-serif;
     -webkit-appearance: none;
     /* Remove estilo padrão do select no iOS */
@@ -147,51 +147,77 @@
 
 .post-item {
     display: flex;
-    gap: 30px;
-    align-items: center;
-    border: 2px solid #eee;
-    border-radius: 20px;
-    padding: 20px;
+    gap: 20px; /* Reduzi um pouco o gap entre imagem e texto */
+    align-items: stretch; /* Faz a altura do texto acompanhar a imagem */
+    border: 1px solid #000000;
+    border-radius: 30px;
     margin-bottom: 20px;
+    background-color: #fff;
 }
 
 .post-image {
-    flex-basis: 300px;
+    flex-basis: 350px; /* Ajuste para o tamanho da imagem da referência */
     flex-shrink: 0;
-    /* Impede que a imagem encolha */
+    border-radius: 30px;
+    overflow: hidden; /* Garante que a imagem respeite a borda arredondada */
 }
 
 .post-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border-radius: 15px;
+    display: block; /* Remove espaços fantasmas abaixo da imagem */
+}
+
+.post-content {
+    display: flex;
+    flex-direction: column; /* Coloca os textos um embaixo do outro */
+    justify-content: center; /* Centraliza verticalmente */
+    width: 100%;
+    margin-top: 1rem;
+
+}
+
+.post-content h2 {
+    font-family: 'Exo 2', sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1px;
+    line-height: 1.2;
 }
 
 .post-content h3 {
     font-family: 'Exo 2', sans-serif;
-    color: #000;
-    font-size: 1.8rem;
-    margin-top: 0;
-    margin-bottom: 15px;
+    font-size: 1.8rem; /* Tamanho médio */
+    font-weight: 400;  /* Peso visual mais leve */
+    margin: 0;         /* Sem margem para colar no de baixo */
+    line-height: 1.2;
 }
 
 .post-content p {
     font-family: 'Lato', sans-serif;
-    color: #555;
-    line-height: 1.6;
-    margin-bottom: 20px;
+    font-size: 0.85rem; /* Fonte menor */
+    line-height: 1.4;
+    width: 50%;
+    text-transform: uppercase; /* Deixa tudo em caixa alta */
+    text-align: justify; /* Deixa o bloco de texto quadradinho */
+    font-weight: 500;    /* Um pouco mais "grosso" que o normal */
 }
 
 .btn-post {
     background-color: #fa680a;
     color: #fff;
-    padding: 10px 30px;
-    border-radius: 20px;
+    padding: 10px 35px; /* Botão mais largo */
+    border-radius: 50px; /* Bordas bem redondas */
     text-decoration: none;
-    font-weight: 700;
-    transition: background-color 0.3s;
+    font-weight: 800;
     font-family: 'Exo 2', sans-serif;
+    text-transform: uppercase;
+    align-self: flex-end; /* Joga o botão para a direita */
+    margin-top: auto; /* Empurra para baixo se sobrar espaço */
+    margin-right: 20px;
+    margin-bottom: 10px;
+    transition: background-color 0.3s;
 }
 
 .btn-post:hover {
