@@ -2,6 +2,7 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status, permissions
 from rest_framework_simplejwt.tokens import RefreshToken
+from rest_framework.permissions import IsAuthenticated
 
 from .serializers import RegisterSerializer, LoginSerializer, MeSerializer
 from .services import AuthService
@@ -92,3 +93,12 @@ class MeApi(APIView):
     def get(self, request):
         data = {"email": request.user.email, "nome": request.user.nome}
         return Response(MeSerializer(data).data, status=status.HTTP_200_OK)
+
+class LogoutApi(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def post(self, request):
+        res = Response({"ok": True})
+        res.delete_cookie("access_token", path="/")
+        res.delete_cookie("refresh_token", path="/")
+        return res

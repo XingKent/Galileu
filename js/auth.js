@@ -1,50 +1,91 @@
-async function postJSON(url, data) {
+// Galileu/js/auth.js
+
+const API = {
+  register: "/api/auth/register/",
+  login: "/api/auth/login/",
+  me: "/api/auth/me/",
+  logout: "/api/auth/logout/"
+};
+
+async function apiRequest(url, method, bodyObj) {
   const res = await fetch(url, {
-    method: "POST",
+    method,
     headers: { "Content-Type": "application/json" },
-    credentials: "include", // importante: manda/recebe cookies
-    body: JSON.stringify(data),
+    credentials: "include", // <- ESSENCIAL: manda/recebe cookies HttpOnly
+    body: bodyObj ? JSON.stringify(bodyObj) : undefined
   });
 
-  const payload = await res.json().catch(() => ({}));
+  let data = null;
+  try { data = await res.json(); } catch (_) {}
+
   if (!res.ok) {
-    const msg = payload?.detail || payload?.non_field_errors?.[0] || "Erro";
+    const msg = (data && (data.detail || data.message)) || `Erro HTTP ${res.status}`;
     throw new Error(msg);
   }
-  return payload;
+
+  return data;
 }
 
-// LOGIN
-document.getElementById("login-form")?.addEventListener("submit", async (e) => {
+function q(id) { return document.getElementById(id); }
+
+async function handleRegisterSubmit(e) {
   e.preventDefault();
 
-  const email = document.getElementById("login-email").value;
-  const senha = document.getElementById("login-senha").value;
+  const payload = {
+    email: q("cadastro-email").value.trim(),
+    nome: q("cadastro-nome").value.trim(),
+    nascimento: q("cadastro-nascimento").value,
+    cpf: q("cadastro-cpf").value.trim(),
+    telefone: q("cadastro-telefone").value.trim(),
+    senha: q("cadastro-senha").value,
+    confirmar: q("cadastro-confirmar").value
+  };
 
-  try {
-    await postJSON("/api/auth/login/", { email, senha });
-    window.location.href = "index.html";
-  } catch (err) {
-    alert(err.message);
-  }
-});
+  await apiRequest(API.register, "POST", payload);
 
-// CADASTRO
-document.getElementById("cadastro-form")?.addEventListener("submit", async (e) => {
+  // Se registrou, já vem cookie. Redireciona ou só avisa.
+  alert("Conta criada e login efetuado.");
+  window.location.href = "index.html";
+}
+
+async function handleLoginSubmit(e) {
   e.preventDefault();
 
-  const email = document.getElementById("cadastro-email").value;
-  const nome = document.getElementById("cadastro-nome").value;
-  const nascimento = document.getElementById("cadastro-nascimento").value || null;
-  const cpf = document.getElementById("cadastro-cpf").value;
-  const telefone = document.getElementById("cadastro-telefone").value;
-  const senha = document.getElementById("cadastro-senha").value;
-  const confirmar = document.getElementById("cadastro-confirmar").value;
+  const payload = {
+    email: q("login-email").value.trim(),
+    senha: q("login-senha").value
+  };
 
-  try {
-    await postJSON("/api/auth/register/", { email, nome, nascimento, cpf, telefone, senha, confirmar });
-    window.location.href = "index.html";
-  } catch (err) {
-    alert(err.message);
+  await apiRequest(API.login, "POST", payload);
+
+  alert("Login efetuado.");
+  window.location.href = "index.html";
+}
+
+function wireCadastroPage() {
+  const loginForm = q("login-form");
+  const cadastroForm = q("cadastro-form");
+
+  if (loginForm) {
+    loginForm.addEventListener("submit", async (e) => {
+      try { await handleLoginSubmit(e); }
+      catch (err) { alert(err.message); }
+    });
   }
-});
+
+  if (cadastroForm) {
+    cadastroForm.addEventListener("submit", async (e) => {
+      try { await handleRegisterSubmit(e); }
+      catch (err) { alert(err.message); }
+    });
+  }
+}
+
+// auto-wire só na página que tem esses forms
+document.addEventListener("DOMContentLoaded", wireCadastroPage);
+
+// expõe helpers pra outras páginas (logout/protected)
+window.GalileuAuth = {
+  me: () => apiRequest(API.me, "GET"),
+  logout: () => apiRequest(API.logout, "POST")
+};
