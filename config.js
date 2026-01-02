@@ -2,15 +2,14 @@
   const isLocal =
     location.hostname === "localhost" || location.hostname === "127.0.0.1";
 
-  // AJUSTE se seu backend local roda em outra porta (ex: http://localhost:8000)
+  // Backend local via nginx na porta 80 (seu caso)
   const LOCAL_API_BASE = "http://localhost";
 
-  // AJUSTE quando seu backend estiver online (Render/Railway/VPS)
+  // Quando subir o backend online, coloque aqui:
   const PROD_API_BASE = "https://SEU_BACKEND_AQUI";
 
-  // Se seu backend autentica por cookie HttpOnly, coloque true.
-  // Se autentica por Bearer token (recomendado com Pages), coloque false.
-  const USE_COOKIES = false;
+  // ✅ VOCÊ ESTÁ EM COOKIE/SESSION
+  const USE_COOKIES = true;
 
   window.GALILEU = window.GALILEU || {};
   window.GALILEU.API_BASE = isLocal ? LOCAL_API_BASE : PROD_API_BASE;

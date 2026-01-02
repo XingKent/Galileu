@@ -46,7 +46,7 @@
         try {
           showMsg("Entrando...", "info");
           await window.GalileuAuth.loginFromForm();
-          showMsg("Login ok! Indo pro dashboard...", "success");
+          showMsg("Login OK! Indo pro dashboard...", "success");
           window.location.href = "dashboard.html";
         } catch (err) {
           showMsg(err.message || "Falha no login.", "error");

@@ -1,6 +1,4 @@
 (() => {
-  const TOKEN_KEY = "galileu_access_token";
-
   function apiBase() {
     const base = window.GALILEU && window.GALILEU.API_BASE;
     if (!base) throw new Error("API_BASE não configurado. Verifique o config.js");
@@ -16,26 +14,11 @@
     return `${apiBase()}${path}`;
   }
 
-  function getToken() {
-    return localStorage.getItem(TOKEN_KEY);
-  }
-
-  function setToken(token) {
-    localStorage.setItem(TOKEN_KEY, token);
-  }
-
-  function clearToken() {
-    localStorage.removeItem(TOKEN_KEY);
-  }
-
   async function request(path, { method = "GET", body = null, headers = {} } = {}) {
     const url = buildUrl(path);
 
     const h = new Headers(headers);
     if (!h.has("Content-Type")) h.set("Content-Type", "application/json");
-
-    const token = getToken();
-    if (token) h.set("Authorization", `Bearer ${token}`);
 
     const opts = {
       method,
@@ -43,6 +26,7 @@
       mode: "cors",
     };
 
+    // ✅ ESSENCIAL para cookie/session
     if (useCookies()) {
       opts.credentials = "include";
     }
@@ -72,10 +56,5 @@
     return data;
   }
 
-  window.GalileuAPI = {
-    request,
-    getToken,
-    setToken,
-    clearToken,
-  };
+  window.GalileuAPI = { request };
 })();
