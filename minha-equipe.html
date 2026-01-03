@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minha Equipe - Galileu Robotics</title>
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/equipe.css"> <script>
+        if (!localStorage.getItem('usuario_logado')) {
+            window.location.href = "/login.html"; // Redireciona se não logado
+        }
+    </script>
+</head>
+<body>
+
+    <nav>
+        <a href="/minha-equipe.html" class="btn-laranja">Minha Equipe</a>
+    </nav>
+
+    <div class="dashboard-container">
+        
+        <div class="col-esquerda">
+            <div class="card perfil-card">
+                <div class="foto-container">
+                    <img src="assets/img/user-placeholder.png" alt="Foto Perfil">
+                </div>
+                <button class="btn-preto-pequeno">Editar foto</button>
+                
+                <div class="info-texto">
+                    <p><strong>Email:</strong> fernanda@galileu.com.br</p>
+                    <p><strong>Nome:</strong> Fernanda Gomes</p>
+                    <p><strong>Data de nasc:</strong> 18/05/1995</p>
+                    <p><strong>CPF:</strong> 123.456.789-34</p>
+                </div>
+                <div class="badge-capitao">★ Capitão</div>
+            </div>
+
+            <div class="card nf-card">
+                <h3>NOTA FISCAL</h3>
+                <div class="radio-group">
+                    <label><input type="radio" name="tipo_pessoa" checked> Pessoa Física</label>
+                    <label><input type="radio" name="tipo_pessoa"> Pessoa Jurídica</label>
+                </div>
+                <form>
+                    <input type="text" placeholder="Digite o CNPJ/CPF">
+                    <input type="text" placeholder="Razão Social">
+                    <input type="text" placeholder="Endereço">
+                    <input type="text" placeholder="Telefone">
+                    <input type="email" placeholder="E-mail">
+                    <button class="btn-laranja-full">Solicitar nota</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="col-centro">
+            <div class="card equipe-header">
+                <div class="logo-equipe">
+                    <img src="/assets/img/logo-galileu.png" alt="Logo Equipe">
+                </div>
+                <div class="equipe-info">
+                    <h2>Equipe</h2>
+                    <p><strong>Nome:</strong> Galileu Robotics</p>
+                    <p><strong>Criado em:</strong> 23/03/2003</p>
+                    <p><strong>Slogan:</strong> Café para os humanos, código para as máquinas.</p>
+                </div>
+                <button class="btn-preto-pequeno abs-edit">Editar foto</button>
+            </div>
+
+            <div class="listas-container">
+                <div class="card lista-card">
+                    <h3>Membro</h3>
+                    <ul class="scroll-list">
+                        <li>Guilherme Nobre <span class="status-dot online"></span></li>
+                        <li>Fernanda Gomes <span class="status-dot offline"></span></li>
+                        <li>Outro Membro</li>
+                        <li>Mais um membro</li>
+                    </ul>
+                    <div class="add-box">
+                        <input type="text" placeholder="Nome">
+                        <button class="btn-preto-full">Adicionar membro</button>
+                    </div>
+                </div>
+
+                <div class="card lista-card">
+                    <h3>Robô</h3>
+                    <ul class="scroll-list">
+                        <li>Guilherme Nobre</li>
+                        <li>Guilherme Nobre</li>
+                        <li>Guilherme Nobre</li>
+                    </ul>
+                    <div class="add-box">
+                        <input type="text" placeholder="Nome">
+                        <button class="btn-preto-full">Adicionar membro</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card certificados-card">
+                <h3>Certificados</h3>
+                <ul class="cert-list">
+                    <li>
+                        <span>RIW(Rio Innovation Week 2025)</span>
+                        <div class="cert-btns">
+                            <button class="btn-preto-mini">Download</button>
+                            <button class="btn-preto-mini">Enviar email</button>
+                        </div>
+                    </li>
+                    <li>
+                        <span>RIW(Rio Innovation Week 2025)</span>
+                        <div class="cert-btns">
+                            <button class="btn-preto-mini">Download</button>
+                            <button class="btn-preto-mini">Enviar email</button>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+    <script src="/js/api.js"></script> 
+    <script src="/js/auth.js"></script>
+    <script src="/js/navbar.js"></script>
+</body>
+</html>

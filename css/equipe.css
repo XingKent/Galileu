@@ -1,0 +1,131 @@
+/* Layout Principal */
+.dashboard-container {
+    display: grid;
+    grid-template-columns: 300px 1fr; /* Coluna lateral fixa, resto flexível */
+    gap: 20px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    font-family: Arial, sans-serif;
+}
+
+/* Estilo Geral dos Cards */
+.card {
+    background: #fff;
+    border: 1px solid #ff7b00; /* Borda laranja fina igual imagem */
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+/* Perfil */
+.perfil-card { text-align: center; }
+.foto-container img {
+    width: 100px;
+    height: 100px;
+    border-radius: 10px;
+    object-fit: cover;
+    background: #ccc;
+}
+.badge-capitao {
+    background: #ff7b00;
+    color: white;
+    padding: 5px 15px;
+    border-radius: 20px;
+    display: inline-block;
+    margin-top: 10px;
+    font-weight: bold;
+}
+.info-texto { text-align: left; margin-top: 15px; font-size: 0.9rem; }
+
+/* Nota Fiscal */
+.nf-card input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 20px; /* Borda arredondada nos inputs */
+    outline: none;
+}
+
+/* Equipe Header */
+.equipe-header {
+    display: flex;
+    gap: 20px;
+    position: relative;
+    align-items: center;
+}
+.logo-equipe img {
+    width: 120px;
+    height: 120px;
+    background: #000;
+    border-radius: 15px;
+}
+
+/* Listas (Membros e Robos) */
+.listas-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+.scroll-list {
+    height: 150px;
+    overflow-y: auto;
+    list-style: none;
+    padding: 0;
+    text-align: center;
+}
+.scroll-list li { padding: 5px 0; border-bottom: 1px solid #eee; }
+
+/* Botões */
+.btn-laranja-full {
+    width: 100%;
+    background: #ff7b00;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+}
+.btn-preto-pequeno {
+    background: #000;
+    color: white;
+    border: none;
+    padding: 5px 15px;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    cursor: pointer;
+    margin-top: -10px;
+    margin-bottom: 10px;
+}
+.btn-preto-full {
+    width: 100%;
+    background: #000;
+    color: white;
+    border: none;
+    padding: 8px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+/* Certificados */
+.cert-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+    font-weight: bold;
+}
+.btn-preto-mini {
+    background: #000;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 10px;
+    font-size: 0.7rem;
+    cursor: pointer;
+    margin-left: 5px;
+}
