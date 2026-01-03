@@ -1,135 +1,160 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cadastro | Galileu Robotics</title>
-  <link rel="stylesheet" href="cadastrar.css">
-  <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="icon" href="img/Logo_Galileu.png" type="image/png">
+  <title>Página de Cadastro</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Exo+2:wght@700;800&family=Lato:wght@400;700&display=swap"
+    rel="stylesheet">
+
+  <!-- ✅ CSS como era antes (agora com path absoluto) -->
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/cadastrar.css">
 </head>
+
 <body>
-
-  <header class="header-container">
-    <div class="logo-container">
-      <img src="img/Logo_Galileu.png" alt="Logo Galileu Robotics">
-    </div>
-
-    <nav class="nav-container">
+  <header>
+    <nav>
+      <div class="logo">
+        <a href="/index.html"><img src="/assets/img/GalileuLogo.png" alt="Logo da Galileu Robotics"></a>
+      </div>
       <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="eventos.html">Eventos</a></li>
-        <li><a href="blog.html">Blog</a></li>
-        <li><a href="sobre.html">Sobre Nós</a></li>
-        <li><a href="artigo.html">Forum</a></li>
-        <li><a href="cadastrar.html" class="btn"><img src="img/user.png" alt="User Icon"></a></li>
+        <li><a href="/eventos.html">Eventos</a></li>
+        <li><a href="/blog.html">Blog</a></li>
+        <li><a href="/artigo.html">Forum</a></li>
+        <li><a href="/sobre.html">Sobre Nós</a></li>
       </ul>
+      <div class="auth-buttons">
+        <a href="/cadastrar.html" class="btn">
+          <img src="/assets/img/leoLogin.png" alt="LoginLeo"> LOGIN / CADASTRE-SE
+        </a>
+      </div>
     </nav>
   </header>
 
-  <main class="main-container">
-    <section class="login-section">
-      <div class="login-container">
-        <h1>LOGIN</h1>
+  <main>
+    <div class="banner">
+      <img src="/assets/img/banner%20com%20v%C3%A1rios%20leos%20laranjas.png" alt="banner com vários leos laranjas">
+    </div>
+
+    <div class="auth-container">
+
+      <section class="login">
+        <h2>Faça o login</h2>
 
         <form id="login-form">
           <div class="form-group">
-            <input type="email" placeholder="Email" id="login-email" required>
+            <input type="email" placeholder="Email" id="login-email" name="email" required>
           </div>
 
           <div class="form-group">
-            <input type="password" placeholder="Senha" id="login-senha" required>
+            <input type="password" placeholder="Senha" id="login-senha" name="senha" required>
           </div>
 
           <a href="#" class="forgot-password">Esqueceu a senha?</a>
           <button type="submit">ENTRAR</button>
         </form>
-      </div>
+      </section>
 
-      <div class="cadastro-container">
-        <h1>CADASTRO</h1>
+      <div class="divisoria"></div>
+
+      <section class="cadastro">
+        <h2>Crie uma nova conta</h2>
+        <p>É rápido e fácil</p>
 
         <form id="cadastro-form">
           <div class="form-group">
-            <input type="email" placeholder="Email" id="cadastro-email" required>
+            <input type="email" placeholder="Email" id="cadastro-email" name="email" required>
           </div>
 
           <div class="form-group">
-            <input type="text" placeholder="Nome Completo" id="cadastro-nome" required>
+            <input type="text" placeholder="Nome Completo" id="cadastro-nome" name="nome" required>
           </div>
 
           <div class="form-group">
-            <input type="date" id="cadastro-nascimento" required>
+            <input type="date" id="cadastro-nascimento" name="nascimento" required>
           </div>
 
           <div class="row">
             <div class="form-group">
-              <input type="text" placeholder="CPF" id="cadastro-cpf" required>
+              <input type="text" placeholder="CPF" id="cadastro-cpf" name="cpf" required>
             </div>
-
             <div class="form-group">
-              <input type="text" placeholder="RG" id="cadastro-rg" required>
+              <input type="tel" placeholder="Telefone" id="cadastro-telefone" name="telefone" required>
             </div>
           </div>
 
           <div class="form-group">
-            <input type="tel" placeholder="Telefone" id="cadastro-telefone" required>
+            <input type="password" placeholder="Senha" id="cadastro-senha" name="senha" required>
           </div>
 
           <div class="form-group">
-            <input type="password" placeholder="Senha" id="cadastro-senha" required>
-          </div>
-
-          <div class="form-group">
-            <input type="password" placeholder="Confirmar Senha" id="cadastro-confirmar" required>
+            <input type="password" placeholder="Confirmar Senha" id="cadastro-confirmar" name="confirmar" required>
           </div>
 
           <button type="submit">CADASTRE-SE</button>
         </form>
-      </div>
-    </section>
+      </section>
+
+    </div>
   </main>
 
-  <footer>
-    <div class="footer-container">
-      <div class="footer-logo">
-        <img src="img/Logo_Galileu.png" alt="Logo Galileu Robotics">
-      </div>
+  <footer class="main-footer">
+    <div class="footer-upper"></div>
+    <div class="footer-lower">
+      <div class="container footer-content">
 
-      <div class="footer-links">
-        <h3>Links Rápidos</h3>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="eventos.html">Eventos</a></li>
-          <li><a href="blog.html">Blog</a></li>
-          <li><a href="sobre.html">Sobre Nós</a></li>
-        </ul>
-      </div>
-
-      <div class="footer-contact">
-        <h3>Contato</h3>
-        <p>Email: contato@galileurobotics.com</p>
-        <p>Telefone: (00) 0000-0000</p>
-        <div class="social-icons">
-          <a href="#"><img src="img/facebook.png" alt="Facebook"></a>
-          <a href="#"><img src="img/instagram.png" alt="Instagram"></a>
-          <a href="#"><img src="img/twitter.png" alt="Twitter"></a>
+        <div class="footer-column">
+          <div class="footer-title">
+            <h3>Ajuda</h3>
+          </div>
+          <div class="footer-links">
+            <ul>
+              <li><a href="#">Ficou alguma dúvida?</a></li>
+              <li><a href="#">Fale conosco</a></li>
+              <li><a href="#">Compliance</a></li>
+              <li><a href="#">Política de privacidade</a></li>
+            </ul>
+          </div>
         </div>
-      </div>
-    </div>
 
-    <div class="footer-copyright-container">
-      <div class="footer-copyright">
-        <small>© 2025 Galileu Robotics - todos os direitos reservados</small>
+        <div class="footer-column">
+          <div class="footer-title">
+            <h3>Redes Sociais</h3>
+          </div>
+          <div class="footer-social">
+            <a href="https://www.instagram.com/galileurobotics">
+              <img src="/assets/img/iconeInsta.png" alt="Instagram">
+            </a>
+            <a href="https://www.linkedin.com/company/galileu-robotics/?viewAsMember=true">
+              <img src="/assets/img/iconeLinkedin.png" alt="linkedIn">
+            </a>
+            <a href="#">
+              <img src="/assets/img/iconeYT.png" alt="YouTube">
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="container footer-copyright-container">
+        <div class="footer-copyright">
+          <p><small>&copy; 2025 Galileu Robotics - todos os direitos reservados</small></p>
+        </div>
       </div>
     </div>
   </footer>
 
-  <!-- ESSENCIAL -->
-<script src="./config.js"></script>
-<script src="./js/api.js"></script>
-<script src="./js/auth.js"></script>
-<script src="./js/cadastrar.page.js"></script>
+  <!-- ✅ seus scripts novos (sem quebrar o CSS) -->
+  <script src="/config.js"></script>
+  <script src="/js/api.js"></script>
+  <script src="/js/auth.js"></script>
+  <script src="/js/cadastrar.page.js"></script>
 </body>
+
 </html>
