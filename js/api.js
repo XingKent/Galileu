@@ -20,37 +20,32 @@
     const h = new Headers(headers);
     if (!h.has("Content-Type")) h.set("Content-Type", "application/json");
 
-    const opts = {
-      method,
-      headers: h,
-      mode: "cors",
-    };
+    const opts = { method, headers: h, mode: "cors" };
 
-    // ✅ ESSENCIAL para cookie/session
-    if (useCookies()) {
-      opts.credentials = "include";
-    }
+    // ✅ essencial pra cookie/session
+    if (useCookies()) opts.credentials = "include";
 
     if (body !== null && body !== undefined) {
       opts.body = typeof body === "string" ? body : JSON.stringify(body);
     }
 
-    const res = await fetch(url, opts);
+    let res;
+    try {
+      res = await fetch(url, opts);
+    } catch {
+      throw new Error(`Falha de rede chamando API: ${url}. PROD_API_BASE está correto? A API está online (HTTPS)?`);
+    }
 
     const text = await res.text();
     let data = null;
-    try {
-      data = text ? JSON.parse(text) : null;
-    } catch {
-      data = text || null;
-    }
+    try { data = text ? JSON.parse(text) : null; } catch { data = text || null; }
 
     if (!res.ok) {
       const msg =
         (data && typeof data === "object" && (data.detail || data.message)) ||
         (typeof data === "string" && data) ||
         `Erro HTTP ${res.status}`;
-      throw new Error(msg);
+      throw new Error(`${msg} (URL: ${url})`);
     }
 
     return data;
