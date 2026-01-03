@@ -3,11 +3,8 @@
     location.hostname === "localhost" || location.hostname === "127.0.0.1";
 
   const LOCAL_API_BASE = "http://localhost";
-
-  // ✅ URL do seu tunnel (do print)
   const PROD_API_BASE = "https://revelation-deutschland-clearance-label.trycloudflare.com";
 
-  // ✅ seu auth é cookie/session
   const USE_COOKIES = true;
 
   window.GALILEU = window.GALILEU || {};
