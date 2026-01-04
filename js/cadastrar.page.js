@@ -1,73 +1,117 @@
-(() => {
-  function ensureMsgBox() {
-    let box = document.getElementById("auth-msg");
-    if (!box) {
-      box = document.createElement("div");
-      box.id = "auth-msg";
-      box.style.margin = "12px 0";
-      box.style.padding = "10px 12px";
-      box.style.borderRadius = "10px";
-      box.style.display = "none";
-      box.style.fontFamily = "Poppins, Arial, sans-serif";
-      box.style.fontSize = "14px";
-      const anchor = document.querySelector("main") || document.body;
-      anchor.prepend(box);
-    }
-    return box;
+(function () {
+  function el(id) { return document.getElementById(id); }
+
+  function showMsg(msg) {
+    const box = el("auth-alert");
+    if (!box) { alert(msg); return; }
+    box.textContent = msg;
+    box.classList.add("show");
   }
 
-  function showMsg(text, type = "info") {
-    const box = ensureMsgBox();
-    box.textContent = text;
-    box.style.display = "block";
+  function clearMsg() {
+    const box = el("auth-alert");
+    if (!box) return;
+    box.textContent = "";
+    box.classList.remove("show");
+  }
 
-    if (type === "success") {
-      box.style.background = "#e7f8ee";
-      box.style.border = "1px solid #b8efd0";
-      box.style.color = "#0f5132";
-    } else if (type === "error") {
-      box.style.background = "#fdecec";
-      box.style.border = "1px solid #f5c2c7";
-      box.style.color = "#842029";
-    } else {
-      box.style.background = "#eef3ff";
-      box.style.border = "1px solid #cfe0ff";
-      box.style.color = "#1f2a44";
+  function disable(btn, state) {
+    if (!btn) return;
+    btn.disabled = state;
+    btn.style.opacity = state ? "0.7" : "1";
+    btn.style.cursor = state ? "not-allowed" : "pointer";
+  }
+
+  function ensureApiBase() {
+    const base = (window.GALILEU?.API_BASE || "").trim();
+    if (!base) {
+      throw new Error(
+        "API_BASE não definido. Abra a página com ?api=https://SEU_TUNEL.trycloudflare.com (uma vez) para salvar."
+      );
     }
   }
 
-  function wire() {
-    const loginForm = document.getElementById("login-form");
-    const cadastroForm = document.getElementById("cadastro-form");
-
-    if (loginForm) {
-      loginForm.addEventListener("submit", async (e) => {
-        e.preventDefault();
-        try {
-          showMsg("Entrando...", "info");
-          await window.GalileuAuth.loginFromForm();
-          showMsg("Login OK! Indo pro dashboard...", "success");
-          window.location.href = "dashboard.html";
-        } catch (err) {
-          showMsg(err.message || "Falha no login.", "error");
-        }
-      });
-    }
-
-    if (cadastroForm) {
-      cadastroForm.addEventListener("submit", async (e) => {
-        e.preventDefault();
-        try {
-          showMsg("Criando conta...", "info");
-          await window.GalileuAuth.registerFromForm();
-          showMsg("Conta criada! Indo pro dashboard...", "success");
-          window.location.href = "dashboard.html";
-        } catch (err) {
-          showMsg(err.message || "Falha no cadastro.", "error");
-        }
-      });
+  async function alreadyLoggedRedirect() {
+    try {
+      ensureApiBase();
+      await window.GalileuAuth.me();
+      window.location.href = "minha-equipe.html";
+    } catch (_) {
+      // não logado, continua
     }
   }
 
-  document.addEventListener("DOMContentLoaded", wire);
+  async function onLoginSubmit(e) {
+    e.preventDefault();
+    clearMsg();
+
+    const email = (el("login-email")?.value || "").trim();
+    const senha = (el("login-senha")?.value || "");
+
+    const btn = el("login-btn");
+    disable(btn, true);
+
+    try {
+      ensureApiBase();
+      showMsg("Entrando...");
+
+      await window.GalileuAuth.login(email, senha);
+
+      // garante que cookie veio e sessão está válida
+      await window.GalileuAuth.me();
+
+      showMsg("Login OK! Indo para Minha Equipe...");
+      window.location.href = "minha-equipe.html";
+    } catch (err) {
+      showMsg("Erro no login: " + (err?.message || "Erro desconhecido"));
+    } finally {
+      disable(btn, false);
+    }
+  }
+
+  async function onRegisterSubmit(e) {
+    e.preventDefault();
+    clearMsg();
+
+    const payload = {
+      email: (el("cadastro-email")?.value || "").trim(),
+      nome: (el("cadastro-nome")?.value || "").trim(),
+      nascimento: el("cadastro-nascimento")?.value || "",
+      cpf: (el("cadastro-cpf")?.value || "").trim(),
+      telefone: (el("cadastro-telefone")?.value || "").trim(),
+      senha: el("cadastro-senha")?.value || "",
+      confirmar: el("cadastro-confirmar")?.value || "",
+    };
+
+    const btn = el("cadastro-btn");
+    disable(btn, true);
+
+    try {
+      ensureApiBase();
+      showMsg("Criando conta...");
+
+      await window.GalileuAuth.register(payload);
+
+      // depois do register, já deve estar logado (cookie)
+      await window.GalileuAuth.me();
+
+      showMsg("Cadastro OK! Indo para Minha Equipe...");
+      window.location.href = "minha-equipe.html";
+    } catch (err) {
+      showMsg("Erro no cadastro: " + (err?.message || "Erro desconhecido"));
+    } finally {
+      disable(btn, false);
+    }
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const loginForm = el("login-form");
+    const cadastroForm = el("cadastro-form");
+
+    if (loginForm) loginForm.addEventListener("submit", onLoginSubmit);
+    if (cadastroForm) cadastroForm.addEventListener("submit", onRegisterSubmit);
+
+    // se já estiver logado, joga pra Minha Equipe
+    alreadyLoggedRedirect();
+  });
 })();
