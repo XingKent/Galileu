@@ -19,6 +19,15 @@ services:
       dockerfile: docker/django/Dockerfile
     env_file:
       - .env
+    environment:
+      # === COOKIES cross-site (Pages -> API) ===
+      - DJANGO_SECURE_COOKIES=1
+
+      # === hosts aceitos (o Host será o seu *.trycloudflare.com) ===
+      - DJANGO_ALLOWED_HOSTS=localhost,127.0.0.1,0.0.0.0,web,nginx,.trycloudflare.com
+
+      # opcional (deixa debug desligado por padrão)
+      - DJANGO_DEBUG=0
     depends_on:
       db:
         condition: service_healthy
@@ -40,3 +49,4 @@ services:
 
 volumes:
   pgdata:
+  media_data:
