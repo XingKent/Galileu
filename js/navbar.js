@@ -1,20 +1,26 @@
 document.addEventListener("DOMContentLoaded", () => {
-    // Verifica se a função de auth existe e se o usuário está logado
-    // Usa a função isLoggedIn que criamos no auth.js
-    const isLogged = window.GalileuAuth && window.GalileuAuth.isLoggedIn();
+  (async () => {
+    const btn =
+      document.getElementById("btn-login-nav") ||
+      document.querySelector(".auth-buttons a.btn") ||
+      document.querySelector("a.btn-laranja");
 
-    if (isLogged) {
-        // Busca o botão de Login/Cadastro na Navbar
-        // DICA: Adicione o ID="btn-login-nav" no seu HTML para facilitar
-        const btnLogin = document.getElementById("btn-login-nav") || document.querySelector(".btn-laranja");
+    if (!btn) return;
+    if (!window.GalileuAuth || !window.GalileuAuth.me) return;
 
-        if (btnLogin) {
-            // Muda o texto e o link
-            btnLogin.innerText = "Minha Equipe";
-            btnLogin.href = "/minha-equipe.html";
-            
-            // Opcional: Muda a cor ou estilo se quiser
-            // btnLogin.classList.add("btn-equipe");
-        }
+    const setText = (text) => {
+      const span = btn.querySelector("span");
+      if (span) span.textContent = text;
+      else btn.textContent = text;
+    };
+
+    try {
+      await window.GalileuAuth.me(); // ✅ checa login pelo backend (cookie)
+      setText("MINHA EQUIPE");
+      btn.href = "minha-equipe.html";
+    } catch (e) {
+      setText("LOGIN / CADASTRE-SE");
+      btn.href = "cadastrar.html";
     }
+  })();
 });
