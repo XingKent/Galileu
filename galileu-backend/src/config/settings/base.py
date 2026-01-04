@@ -1,17 +1,50 @@
+# galileu-backend/src/config/settings/base.py
+
+import os
 from pathlib import Path
-import environ
-from datetime import timedelta
 
-BASE_DIR = Path(__file__).resolve().parent.parent.parent
+# ============================================================
+# Helpers
+# ============================================================
 
-# Carrega variáveis do .env
-env = environ.Env(DEBUG=(bool, False))
-environ.Env.read_env(BASE_DIR.parent / ".env")
+def env(key: str, default=None):
+    return os.getenv(key, default)
 
-SECRET_KEY = env("SECRET_KEY")
-DEBUG = env("DEBUG", default=False)
 
-ALLOWED_HOSTS = env.list("ALLOWED_HOSTS", default=["localhost", "127.0.0.1"])
+def env_bool(key: str, default: bool = False) -> bool:
+    val = os.getenv(key)
+    if val is None:
+        return default
+    return val.strip().lower() in ("1", "true", "yes", "y", "on")
+
+
+def env_list(key: str, default: str = ""):
+    raw = os.getenv(key, default) or ""
+    return [x.strip() for x in raw.split(",") if x.strip()]
+
+
+# ============================================================
+# Paths
+# Estrutura: src/config/settings/base.py  -> BASE_DIR = src/
+# ============================================================
+
+BASE_DIR = Path(__file__).resolve().parents[3]
+
+# ============================================================
+# Core
+# ============================================================
+
+SECRET_KEY = env("DJANGO_SECRET_KEY", "insecure-change-me")
+DEBUG = env_bool("DJANGO_DEBUG", False)
+
+ALLOWED_HOSTS = env_list(
+    "DJANGO_ALLOWED_HOSTS",
+    "localhost,127.0.0.1,0.0.0.0,web,nginx",
+)
+
+# ============================================================
+# Apps
+# ============================================================
 
 INSTALLED_APPS = [
     # Django
@@ -21,18 +54,16 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-
-    # Terceiros
+    # Third-party
     "rest_framework",
     "corsheaders",
-
-    # Apps do projeto
+    # Local
     "apps.accounts",
     "apps.teams",
 ]
 
 MIDDLEWARE = [
-    "corsheaders.middleware.CorsMiddleware",
+    "corsheaders.middleware.CorsMiddleware",  # precisa ficar no topo
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
@@ -40,40 +71,46 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
-    *MIDDLEWARE[0:] if "MIDDLEWARE" in globals() else [],
 ]
 
 ROOT_URLCONF = "config.urls"
 
-TEMPLATES = [{
-    "BACKEND": "django.template.backends.django.DjangoTemplates",
-    "DIRS": [],
-    "APP_DIRS": True,
-    "OPTIONS": {"context_processors": [
-        "django.template.context_processors.request",
-        "django.contrib.auth.context_processors.auth",
-        "django.contrib.messages.context_processors.messages",
-    ]},
-}]
+TEMPLATES = [
+    {
+        "BACKEND": "django.template.backends.django.DjangoTemplates",
+        "DIRS": [BASE_DIR / "templates"],
+        "APP_DIRS": True,
+        "OPTIONS": {
+            "context_processors": [
+                "django.template.context_processors.debug",
+                "django.template.context_processors.request",
+                "django.contrib.auth.context_processors.auth",
+                "django.contrib.messages.context_processors.messages",
+            ],
+        },
+    }
+]
 
 WSGI_APPLICATION = "config.wsgi.application"
 ASGI_APPLICATION = "config.asgi.application"
 
-# Modelo de usuário custom
-AUTH_USER_MODEL = "accounts.User"
+# ============================================================
+# Database
+# - Se tiver variáveis de Postgres, usa Postgres
+# - Senão cai pra SQLite
+# ============================================================
 
-# Banco configurável: Postgres (prod) ou SQLite (dev)
-DB_ENGINE = env("DB_ENGINE", default="sqlite")
+USE_POSTGRES = bool(env("POSTGRES_DB")) or env_bool("DJANGO_USE_POSTGRES", False)
 
-if DB_ENGINE == "postgres":
+if USE_POSTGRES:
     DATABASES = {
         "default": {
             "ENGINE": "django.db.backends.postgresql",
-            "NAME": env("POSTGRES_DB"),
-            "USER": env("POSTGRES_USER"),
-            "PASSWORD": env("POSTGRES_PASSWORD"),
-            "HOST": env("POSTGRES_HOST", default="db"),
-            "PORT": env("POSTGRES_PORT", default="5432"),
+            "NAME": env("POSTGRES_DB", "galileu"),
+            "USER": env("POSTGRES_USER", "galileu"),
+            "PASSWORD": env("POSTGRES_PASSWORD", "galileu"),
+            "HOST": env("DB_HOST", "db"),
+            "PORT": env("DB_PORT", "5432"),
         }
     }
 else:
@@ -84,7 +121,12 @@ else:
         }
     }
 
-# Password hashing e etc (default do Django já é bom)
+# ============================================================
+# Auth
+# ============================================================
+
+AUTH_USER_MODEL = env("DJANGO_AUTH_USER_MODEL", "accounts.User")
+
 AUTH_PASSWORD_VALIDATORS = [
     {"NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator"},
     {"NAME": "django.contrib.auth.password_validation.MinimumLengthValidator"},
@@ -92,43 +134,86 @@ AUTH_PASSWORD_VALIDATORS = [
     {"NAME": "django.contrib.auth.password_validation.NumericPasswordValidator"},
 ]
 
-AUTHENTICATION_BACKENDS = [
-    "apps.accounts.auth_backend.EmailBackend",
-]
+# ============================================================
+# I18N
+# ============================================================
 
 LANGUAGE_CODE = "pt-br"
-TIME_ZONE = "America/Sao_Paulo"
+TIME_ZONE = env("DJANGO_TIME_ZONE", "America/Sao_Paulo")
 USE_I18N = True
 USE_TZ = True
 
-STATIC_URL = "static/"
+# ============================================================
+# Static / Media
+# ============================================================
+
+STATIC_URL = "/static/"
 STATIC_ROOT = BASE_DIR / "staticfiles"
+
+MEDIA_URL = "/media/"
+MEDIA_ROOT = BASE_DIR / "media"
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-# CORS / CSRF (como teu front tá em HTML, isso evita dor de cabeça)
-CORS_ALLOWED_ORIGINS = env.list("CORS_ALLOWED_ORIGINS", default=[])
-CSRF_TRUSTED_ORIGINS = env.list("CSRF_TRUSTED_ORIGINS", default=[])
+# ============================================================
+# DRF
+# (Sessão por cookie funciona com credentials: "include")
+# ============================================================
 
-# Cookies de segurança (em prod devem ficar secure=True)
-SESSION_COOKIE_SECURE = not DEBUG
-CSRF_COOKIE_SECURE = not DEBUG
-X_FRAME_OPTIONS = "DENY"
-SECURE_CONTENT_TYPE_NOSNIFF = True
-
-# DRF + JWT
 REST_FRAMEWORK = {
     "DEFAULT_AUTHENTICATION_CLASSES": (
-        "apps.accounts.authentication.CookieJWTAuthentication",
+        "rest_framework.authentication.SessionAuthentication",
     ),
     "DEFAULT_PERMISSION_CLASSES": (
-        "rest_framework.permissions.IsAuthenticated",
+        "rest_framework.permissions.AllowAny",
     ),
 }
 
-SIMPLE_JWT = {
-    "ACCESS_TOKEN_LIFETIME": timedelta(minutes=15),
-    "REFRESH_TOKEN_LIFETIME": timedelta(days=7),
-    "ROTATE_REFRESH_TOKENS": True,
-    "BLACKLIST_AFTER_ROTATION": True,
-}
+# ============================================================
+# CORS / CSRF (Pages + TryCloudflare)
+# ============================================================
+
+CORS_ALLOW_CREDENTIALS = True
+
+CORS_ALLOWED_ORIGIN_REGEXES = [
+    r"^https://.*\.pages\.dev$",
+    r"^https://.*\.trycloudflare\.com$",
+    r"^http://localhost(:\d+)?$",
+    r"^http://127\.0\.0\.1(:\d+)?$",
+]
+
+CSRF_TRUSTED_ORIGINS = [
+    "https://*.pages.dev",
+    "https://*.trycloudflare.com",
+]
+
+# ============================================================
+# Cookies cross-site (Somente ativa Secure quando você pedir)
+# - Para funcionar no Pages -> API, você vai querer:
+#   DJANGO_SECURE_COOKIES=1
+# ============================================================
+
+SECURE_COOKIES = env_bool("DJANGO_SECURE_COOKIES", False)
+
+if SECURE_COOKIES:
+    SESSION_COOKIE_SAMESITE = "None"
+    CSRF_COOKIE_SAMESITE = "None"
+    SESSION_COOKIE_SECURE = True
+    CSRF_COOKIE_SECURE = True
+else:
+    SESSION_COOKIE_SAMESITE = "Lax"
+    CSRF_COOKIE_SAMESITE = "Lax"
+    SESSION_COOKIE_SECURE = False
+    CSRF_COOKIE_SECURE = False
+
+# Cloudflared / proxy HTTPS
+SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
+USE_X_FORWARDED_HOST = True
+
+# ============================================================
+# Security headers (ok para dev também)
+# ============================================================
+
+X_FRAME_OPTIONS = "DENY"
+SECURE_CONTENT_TYPE_NOSNIFF = True
+REFERRER_POLICY = "strict-origin-when-cross-origin"
