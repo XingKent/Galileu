@@ -28,6 +28,7 @@ INSTALLED_APPS = [
 
     # Apps do projeto
     "apps.accounts",
+    "apps.teams",
 ]
 
 MIDDLEWARE = [
@@ -39,6 +40,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    *MIDDLEWARE[0:] if "MIDDLEWARE" in globals() else [],
 ]
 
 ROOT_URLCONF = "config.urls"
