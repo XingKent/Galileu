@@ -1,26 +1,17 @@
-document.addEventListener("DOMContentLoaded", () => {
-  (async () => {
-    const btn =
-      document.getElementById("btn-login-nav") ||
-      document.querySelector(".auth-buttons a.btn") ||
-      document.querySelector("a.btn-laranja");
+// Galileu/js/navbar.js
+document.addEventListener("DOMContentLoaded", async () => {
+  const btn = document.getElementById("btn-login-nav") || document.querySelector(".auth-buttons a.btn");
 
-    if (!btn) return;
-    if (!window.GalileuAuth || !window.GalileuAuth.me) return;
+  if (!btn || !window.GalileuAuth) return;
 
-    const setText = (text) => {
-      const span = btn.querySelector("span");
-      if (span) span.textContent = text;
-      else btn.textContent = text;
-    };
+  try {
+    // se tiver sessão, vai dar 200 e trocar o botão
+    await window.GalileuAuth.me();
 
-    try {
-      await window.GalileuAuth.me(); // ✅ checa login pelo backend (cookie)
-      setText("MINHA EQUIPE");
-      btn.href = "minha-equipe.html";
-    } catch (e) {
-      setText("LOGIN / CADASTRE-SE");
-      btn.href = "cadastrar.html";
-    }
-  })();
+    btn.innerHTML = `<span>MINHA EQUIPE</span>`;
+    btn.href = "minha-equipe.html";
+  } catch (e) {
+    // não logado (401) -> deixa como está (LOGIN/CADASTRE-SE)
+    // NÃO faz console.error aqui pra não poluir
+  }
 });

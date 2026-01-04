@@ -1,124 +1,107 @@
-(() => {
-  const API = {
-    register: "/api/auth/register/",
-    login: "/api/auth/login/",
-    me: "/api/auth/me/",
-    logout: "/api/auth/logout/",
-  };
+// Galileu/js/auth.js
 
-  function q(id) {
-    return document.getElementById(id);
+(function () {
+  function getApiBase() {
+    const base = (window.GALILEU && window.GALILEU.API_BASE) ? String(window.GALILEU.API_BASE).trim() : "";
+    if (!base) return "";
+    return base.replace(/\/+$/, ""); // remove barra final
   }
 
-  async function registerFromForm() {
-    const senha = q("cadastro-senha")?.value;
-    const confirmar = q("cadastro-confirmar")?.value;
-
-    if (senha !== confirmar) throw new Error("As senhas não conferem.");
-
-    const payload = {
-      email: q("cadastro-email")?.value.trim(),
-      nome: q("cadastro-nome")?.value.trim(),
-      nascimento: q("cadastro-nascimento")?.value,
-      cpf: q("cadastro-cpf")?.value.trim(),
-      rg: q("cadastro-rg")?.value.trim(),
-      telefone: q("cadastro-telefone")?.value.trim(),
-      senha,
-      confirmar,
-    };
-
-    // Faz o cadastro
-    const response = await window.GalileuAPI.request(API.register, {
-      method: "POST",
-      body: payload,
-    });
-
-    // Opcional: Se cadastrou com sucesso, já manda pro login ou loga direto
-    alert("Cadastro realizado com sucesso! Faça login.");
-    window.location.href = "cadastrar.html"; // Recarrega para limpar ou vai pra login
-    return response;
+  function buildUrl(path) {
+    const base = getApiBase();
+    if (!base) return path; // fallback (dev)
+    return base + path;
   }
 
-  async function loginFromForm() {
-    const payload = {
-      email: q("login-email")?.value.trim(),
-      senha: q("login-senha")?.value,
+  async function request(path, method = "GET", bodyObj) {
+    const url = buildUrl(path);
+
+    const opts = {
+      method,
+      headers: { "Content-Type": "application/json" },
+      credentials: "include", // ESSENCIAL p/ cookie HttpOnly
     };
 
-    try {
-      // 1. Tenta fazer o login no backend
-      const data = await window.GalileuAPI.request(API.login, {
-        method: "POST",
-        body: payload,
-      });
+    if (bodyObj !== undefined) {
+      opts.body = JSON.stringify(bodyObj);
+    }
 
-      // 2. SUCESSO! Salva a "bandeira" de logado no navegador
-      localStorage.setItem('usuario_logado', 'true');
+    const res = await fetch(url, opts);
 
-      // Se o backend devolver o nome do usuário no JSON, salva também pra usar na tela
-      if (data && data.nome) {
-        localStorage.setItem('user_name', data.nome);
+    let data = null;
+    try { data = await res.json(); } catch (_) {}
+
+    if (!res.ok) {
+      // tenta pegar erro amigável
+      let msg = `Erro HTTP ${res.status}`;
+
+      if (data) {
+        if (typeof data.detail === "string") msg = data.detail;
+        else if (typeof data.message === "string") msg = data.message;
+        else if (typeof data.error === "string") msg = data.error;
+        else if (typeof data === "object") {
+          // erros de serializer: {campo:["msg"]}
+          const firstKey = Object.keys(data)[0];
+          if (firstKey) {
+            const val = data[firstKey];
+            if (Array.isArray(val) && val.length) msg = `${firstKey}: ${val[0]}`;
+            else if (typeof val === "string") msg = `${firstKey}: ${val}`;
+          }
+        }
       }
 
-      // 3. Redireciona para a página da equipe (Dashboard)
-      window.location.href = "/minha-equipe.html";
-      
-      return data;
-    } catch (error) {
-      // Se der erro (400/401), o request joga o erro pra cá
-      console.error("Erro ao logar:", error);
-      throw error; // Repassa o erro para o UI mostrar o alert
+      const err = new Error(msg);
+      err.status = res.status;
+      err.data = data;
+      throw err;
     }
+
+    return data;
+  }
+
+  // -------------------------
+  // Funções públicas
+  // -------------------------
+  async function register(payload) {
+    return request("/api/auth/register/", "POST", payload);
+  }
+
+  async function login(email, senha) {
+    return request("/api/auth/login/", "POST", { email, senha });
   }
 
   async function me() {
-    return window.GalileuAPI.request(API.me, { method: "GET" });
+    return request("/api/auth/me/", "GET");
   }
 
   async function logout() {
-    try {
-      // Tenta avisar o backend
-      await window.GalileuAPI.request(API.logout, { method: "POST" });
-    } catch (e) {
-      console.warn("Backend logout falhou, mas limpando localmente...");
-    } finally {
-      // Limpa os dados do navegador SEMPRE (mesmo se o backend der erro)
-      localStorage.removeItem('usuario_logado');
-      localStorage.removeItem('user_name');
-      
-      // Manda de volta pra Home ou Login
-      window.location.href = "/index.html"; 
-    }
+    return request("/api/auth/logout/", "POST", {});
   }
 
-  // Função nova: Verifica rápido se está logado (para usar na Navbar)
   function isLoggedIn() {
-    return localStorage.getItem('usuario_logado') === 'true';
+    // checagem leve (não garante sessão)
+    // a garantia MESMO é chamar me()
+    return !!localStorage.getItem("GALILEU_LAST_LOGIN_OK");
   }
 
-  async function requireAuth(redirect = "cadastrar.html") {
-    // Primeiro checa rápido o localStorage (mais rápido pra UI)
-    if (!isLoggedIn()) {
-        window.location.href = redirect;
-        return null;
-    }
-
-    // Depois confirma com o backend se a sessão ainda é válida
-    try {
-      return await me();
-    } catch {
-      // Se o backend disser que o cookie expirou, desloga
-      logout(); 
-      return null;
-    }
+  // Marca login OK após me() funcionar uma vez
+  async function ensureSessionAndMark() {
+    const user = await me();
+    localStorage.setItem("GALILEU_LAST_LOGIN_OK", "1");
+    return user;
   }
 
+  // expõe no window
   window.GalileuAuth = {
-    registerFromForm,
-    loginFromForm,
-    me,
-    logout,
-    requireAuth,
-    isLoggedIn // Exportei essa pra você usar no navbar.js
+    request,
+    register,
+    login,
+    me: ensureSessionAndMark,
+    logout: async () => {
+      try { await logout(); } finally {
+        localStorage.removeItem("GALILEU_LAST_LOGIN_OK");
+      }
+    },
+    isLoggedIn,
   };
 })();
