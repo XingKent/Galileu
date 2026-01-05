@@ -53,7 +53,7 @@ html {
 
 
 /*------------------ HEADER ------------------*/
-header {
+.main-header {
     background: #000000;
     color: #fff;
     padding: 15px 3%;
