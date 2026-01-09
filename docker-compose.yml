@@ -1,10 +1,41 @@
 services:
+  db:
+    image: postgres:15
+    container_name: galileu_db
+    environment:
+      POSTGRES_DB: galileu_db
+      POSTGRES_USER: galileu_user
+      POSTGRES_PASSWORD: galileu_password
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    restart: always
+
+  backend:
+    build: 
+      context: ./backend
+    container_name: galileu_backend
+    volumes:
+      - ./backend:/app
+    depends_on:
+      - db
+    environment:
+      - DB_HOST=db
+      - DB_NAME=galileu_db
+      - DB_USER=galileu_user
+      - DB_PASS=galileu_password
+    restart: always
+
   nginx:
     image: nginx:1.27-alpine
     container_name: galileu_nginx
-    restart: unless-stopped
     ports:
-      - "80:80"
+      - "80:80"    # Porta do PC : Porta do Container
     volumes:
       - ./site:/usr/share/nginx/html:ro
       - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      - backend
+    restart: always
+
+volumes:
+  postgres_data:
