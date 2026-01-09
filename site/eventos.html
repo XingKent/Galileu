@@ -4,17 +4,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Página de Cadastro</title>
+    <title>Eventos - Galileu Robotics</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Exo+2:wght@700;800&family=Lato:wght@400;700&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/blog.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/eventos.css">
 </head>
 
 <body>
+
     <header>
         <nav>
             <div class="logo">
@@ -34,14 +36,22 @@
     </header>
 
     <main>
-        <div class="container">
+        <section class="events-hero-carousel">
+            <div class="main-event-card">
+                <img src="caminho/para/banner-evento.jpg" alt="Banner do Evento RIW Robotics Challenge">
+                <div class="event-info">
+                    <h2>RIW ROBOTICS CHALLENGE</h2>
+                    <p>Rio de Janeiro - RJ</p>
+                </div>
+            </div>
+        </section>
 
-            <section class="pills-section">
-                <h2 class="section-title">Pílulas de conhecimento</h2>
-
+        <section class="past-events">
+            <div class="container">
+                <h2 class="section-title">Edições Anteriores</h2>
                 <div class="events-grid">
                     <div class="event-card">
-                        <img src="./assets/img/riw.jpg" alt="Evento de Outubro">
+                        <img src="caminho/para/card-evento-1.jpg" alt="Evento de Outubro">
                         <div class="card-content">
                             <h3>RIW ROBOTICS CHALLENGE</h3>
                             <p>Rio de Janeiro - RJ</p>
@@ -49,7 +59,7 @@
                         </div>
                     </div>
                     <div class="event-card">
-                        <img src="./assets/img/riw.jpg" alt="Evento de Agosto">
+                        <img src="caminho/para/card-evento-2.jpg" alt="Evento de Agosto">
                         <div class="card-content">
                             <h3>RIW ROBOTICS CHALLENGE</h3>
                             <p>Rio de Janeiro - RJ</p>
@@ -57,7 +67,7 @@
                         </div>
                     </div>
                     <div class="event-card">
-                        <img src="./assets/img/riw.jpg" alt="Evento de Setembro">
+                        <img src="caminho/para/card-evento-3.jpg" alt="Evento de Setembro">
                         <div class="card-content">
                             <h3>RIW ROBOTICS CHALLENGE</h3>
                             <p>Rio de Janeiro - RJ</p>
@@ -65,69 +75,48 @@
                         </div>
                     </div>
                 </div>
-            </section>
+            </div>
+        </section>
 
-            <section class="blog-filters">
-                <div class="search-bar">
-                    <input type="text" placeholder="Buscar por palavra-chave">
-                    <button type="submit">🔍</button>
+        <section class="photo-gallery-carousel">
+            <div class="gallery-item"><img src="caminho/para/foto-galeria-1.jpg" alt="Foto do evento"></div>
+            <div class="gallery-item"><img src="caminho/para/foto-galeria-2.jpg" alt="Foto do evento"></div>
+            <div class="gallery-item"><img src="caminho/para/foto-galeria-3.jpg" alt="Foto do evento"></div>
+        </section>
+
+        <section class="past-events">
+            <div class="container">
+                <h2 class="section-title">Edições Anteriores</h2>
+                <div class="events-grid">
+                    <div class="event-card">
+                        <img src="caminho/para/card-evento-1.jpg" alt="Evento de Outubro">
+                        <div class="card-content">
+                            <h3>RIW ROBOTICS CHALLENGE</h3>
+                            <p>Rio de Janeiro - RJ</p>
+                            <a href="#" class="btn-card">SAIBA MAIS</a>
+                        </div>
+                    </div>
+                    <div class="event-card">
+                        <img src="caminho/para/card-evento-2.jpg" alt="Evento de Agosto">
+                        <div class="card-content">
+                            <h3>RIW ROBOTICS CHALLENGE</h3>
+                            <p>Rio de Janeiro - RJ</p>
+                            <a href="#" class="btn-card">SAIBA MAIS</a>
+                        </div>
+                    </div>
+                    <div class="event-card">
+                        <img src="caminho/para/card-evento-3.jpg" alt="Evento de Setembro">
+                        <div class="card-content">
+                            <h3>RIW ROBOTICS CHALLENGE</h3>
+                            <p>Rio de Janeiro - RJ</p>
+                            <a href="#" class="btn-card">SAIBA MAIS</a>
+                        </div>
+                    </div>
                 </div>
-                <div class="category-select">
-                    <select>
-                        <option value="">Selecionar categoria</option>
-                        <option value="#">Iniciantes em Robótica</option>
-                        <option value="#">Projetos DIY</option>
-                        <option value="#">Entrevistas & Histórias</option>
-                        <option value="#">Robótica na Educação</option>
-                        <option value="#">Tecnologia & Inovação</option>
-                        <option value="#">Competições & Eventos</option>
-                        <option value="#">Programação</option>
-                        <option value="#">Dicas de Hardware</option>
-                    </select>
-                </div>
-            </section>
+            </div>
+        </section>
 
-            <section class="blog-list">
-                <article class="post-item">
-                    <div class="post-image">
-                        <img src="./assets/img/Banner Galileu Robotics.png" alt="Imagem do artigo">
-                    </div>
-
-                    <div class="post-content">
-                        <h2><span class="littleOrange">Giz ao Circuito:</span></h2>
-                        <h3>A Jornada dos Campeões de <span style="color:#fa680a">Robótica</span></h3>
-                        <p>
-                            LOREM IPSUM DOLOR SIT AMET, CONSECTETUR ADIPISCING ELIT. IN UT POSUERE NULLA.
-                            SED AC EX NIBH. MAECENAS IN IACULIS MI. PHASELLUS LACINIA LUCTUS LACUS AT
-                            TRISTIQUE. DUIS VEL FELIS EUISMOD.
-                        </p>
-                        <a href="" class="btn-post">LER MAIS</a>
-                    </div>
-                </article>
-
-                <!-- esse bloco vai sair -->
-                <article class="post-item">
-                    <div class="post-image">
-                        <img src="./assets/img/Banner Galileu Robotics.png" alt="Imagem do artigo">
-                    </div>
-
-                    <div class="post-content">
-                        <h2><span class="littleOrange">Giz ao Circuito:</span></h2>
-                        <h3>A Jornada dos Campeões de <span style="color:#fa680a">Robótica</span></h3>
-                        <p>
-                            LOREM IPSUM DOLOR SIT AMET, CONSECTETUR ADIPISCING ELIT. IN UT POSUERE NULLA.
-                            SED AC EX NIBH. MAECENAS IN IACULIS MI. PHASELLUS LACINIA LUCTUS LACUS AT
-                            TRISTIQUE. DUIS VEL FELIS EUISMOD.
-                        </p>
-                        <a href="" class="btn-post">LER MAIS</a>
-                    </div>
-                </article>
-
-            </section>
-
-        </div>
     </main>
-
 
     <footer class="main-footer">
         <div class="footer-upper"></div>
@@ -175,7 +164,8 @@
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="js/main.js"></script>
+
 </body>
 
 </html>
